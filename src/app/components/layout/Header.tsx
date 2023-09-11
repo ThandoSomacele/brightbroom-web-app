@@ -1,36 +1,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import CtaButtons from '../parts/CtaButtons';
 
 const Header = () => {
   return (
-    <header className='navbar h-20 bg-light-background flex items-center text-light-onPrimaryContainer'>
+    <div className='navbar bg-light-background flex items-center text-light-onPrimaryContainer py-4 lg:h-[10vh]'>
       <div className='container flex'>
-        <div className='navbar-left flex items-center w-1/2 gap-5'>
+        <nav className='navbar-left flex items-center w-1/2 gap-5 lg:flex-row sm:flex-col'>
           <Image className='logo' src='/logo.png' alt='logo' width={181} height={41} priority />
-          <ul className='nav-links flex gap-4 text__body-large font-medium'>
+          <ul className='nav-links flex gap-4 text__body-large font-medium lg:flex-row sm:flex-col'>
             <li className='nav-link'>
               <Link href={'/#features'}>Features</Link>
             </li>
             <li className='nav-link'>
               <Link href={'/#how-it-works'}>How It Works</Link>
             </li>
+            <li className='nav-link md:hidden sm:block'>
+              <Link href={'/#book-cleaner'}>Book A Cleaner</Link>
+            </li>
             <li className='nav-link'>
               <Link href={'/#become-a-cleaner'}>Become A Cleaner</Link>
             </li>
           </ul>
-        </div>
-        <div className='navbar-right flex  w-1/2 gap-5 justify-end'>
-          <button className='btn btn-primary__outlined text__body-large'>
-            <Link href={'#'} />
-            Login
-          </button>
-          <button className='btn btn-secondary text__body-large'>
-            <Link href={'#'} />
-            Book Your Cleaner
-          </button>
+        </nav>
+        <div className='navbar-right flex w-1/2 justify-end items-center'>
+          <CtaButtons />
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 export default Header;

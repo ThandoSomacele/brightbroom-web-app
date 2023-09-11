@@ -34,15 +34,15 @@
 
 @layer utilities {
   .text__display-large {
-    @apply font-sans font-extrabold text-[57px] leading-[64px] tracking-[-0.25];
+    @apply font-sans font-bold text-[57px] leading-[64px] tracking-[-0.25];
   }
 
   .text__display-medium {
-    @apply font-sans font-extrabold text-[45px] leading-[52px];
+    @apply font-sans font-bold text-[45px] leading-[52px];
   }
 
   .text__display-small {
-    @apply font-sans font-extrabold text-4xl leading-[44px];
+    @apply font-sans font-bold text-4xl leading-[44px];
   }
 
   .text__headline-large {
