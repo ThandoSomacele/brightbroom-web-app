@@ -3,14 +3,13 @@ import Link from 'next/link';
 function CtaButtons() {
   return (
     <div className='cta-buttons flex gap-3'>
-      <button className='btn btn-primary__outlined text__body-large'>
-        <Link href={'#'} />
+      <Link className='btn btn-primary__outlined text__body-large' href={'#'}>
         Login
-      </button>
-      <button className='btn btn-secondary text__body-large'>
-        <Link href={'#'} />
+      </Link>
+
+      <Link className='btn btn-secondary text__body-large' href={'#'}>
         Book Your Cleaner
-      </button>
+      </Link>
     </div>
   );
 }
