@@ -4,7 +4,7 @@ function CtaButtons() {
   return (
     <div className='cta-buttons flex gap-3'>
       <Link className='btn btn-primary__outlined text__body-large' href={'#'}>
-        Login
+        Sign up
       </Link>
 
       <Link className='btn btn-secondary text__body-large' href={'#'}>
