@@ -3,8 +3,8 @@ import CtaButtons from './CtaButtons';
 
 function Hero() {
   return (
-    <section className='bg-light-onPrimaryContainer xlg:h-[44em] py-24'>
-      <div className='container flex lg:flex-row sm:flex-col gap-[10%] h-full items-center'>
+    <section className='bg-light-onPrimaryContainer py-24'>
+      <div className='container flex flex-row justify-between h-full items-center'>
         <div className='hero-left w-[45%] flex flex-col text-light-primaryContainer gap-y-6'>
           <h1 className='text__display-large'>Cleaner bookings made simple</h1>
           <p className='text__headline-small text-light-onPrimary'>
@@ -14,7 +14,7 @@ function Hero() {
           <CtaButtons />
         </div>
         <div className='hero-right w-[45%]'>
-          <Image src={'/assets/hero-image.png'} alt={'Cleaned living room'} width={486} height={509} />
+          <Image src={'/assets/hero-image.webp'} alt={'Cleaned living room'} width={486} height={509} />
         </div>
       </div>
     </section>
