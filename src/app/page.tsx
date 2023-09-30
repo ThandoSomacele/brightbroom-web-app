@@ -1,6 +1,8 @@
-import Hero from '@/app/components/parts/Hero';
-import HowItWorks from '@/app/components/parts/HowItWorks';
-import IntroHome from '@/app/components/parts/IntroHome';
+import Hero from '@/app/components/sections/Hero';
+import HowItWorks from '@/app/components/sections/HowItWorks';
+import IntroHome from '@/app/components/sections/IntroHome';
+import OurFeatures from './components/sections/OurFeatures';
+import CtaBanner from './components/sections/CtaBanner';
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Hero />
       <IntroHome />
       <HowItWorks />
+      <OurFeatures />
+      <CtaBanner />
     </main>
   );
 }

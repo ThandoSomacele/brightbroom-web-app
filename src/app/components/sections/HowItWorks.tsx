@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import CtaButtons from './CtaButtons';
-import Steps from './Steps';
+import CtaButtons from '../parts/CtaButtons';
+import Steps from '../parts/Steps';
 
 const HowItWorks = () => {
   return (
-    <section className='py-24 bg-light-tertiary'>
+    <section className='py-16 bg-light-tertiary'>
       <div className='container flex items-center justify-between'>
         <div className='how-it-work-left w-[45%]'>
           <Image
-            src={'/assets/how-it-works-image.webp'}
+            src={'/sections/how-it-works-image.webp'}
             alt={'Clean bedroom with open window'}
             width={562}
             height={509}
