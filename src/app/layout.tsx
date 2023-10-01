@@ -2,6 +2,7 @@ import '@/app/globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import Header from '@/app/components/layout/Header';
+import Footer from './components/layout/Footer';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={openSans.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

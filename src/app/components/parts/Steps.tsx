@@ -20,8 +20,8 @@ const Steps = () => {
             style={{ objectFit: 'contain' }}
           />
           <div className='text flex flex-col'>
-            <h3 className='text-lg font-bold text-light-surface'>Step {step.order}</h3>
-            <p className='text-2xl text-light-surface'>{step.desc}</p>
+            <h3 className='text-lg font-bold text-light-onTertiary'>Step {step.order}</h3>
+            <p className='text-2xl text-light-onTertiary'>{step.desc}</p>
           </div>
         </li>
       ))}

@@ -4,7 +4,7 @@ import Steps from '../parts/Steps';
 
 const HowItWorks = () => {
   return (
-    <section className='py-16 bg-light-tertiary'>
+    <section className='py-16 bg-light-tertiary text-light-onTertiary'>
       <div className='container flex items-center justify-between'>
         <div className='how-it-work-left w-[45%]'>
           <Image
@@ -14,8 +14,8 @@ const HowItWorks = () => {
             height={509}
           />
         </div>
-        <div className='how-it-work-right w-[45%] flex flex-col text-light-primaryContainer gap-y-7'>
-          <h2 className='text__display-medium text-light-surface'>How it works</h2>
+        <div className='how-it-work-right w-[45%] flex flex-col gap-y-7'>
+          <h2 className='text__display-medium '>How it works</h2>
           <Steps />
           <CtaButtons />
         </div>
