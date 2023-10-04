@@ -78,6 +78,7 @@ const config: Config = {
         surfaceContainerLowest: '#FFFFFF',
         surfaceBright: '#F7FAF8',
         surfaceDim: '#D8DBD9',
+        transparent: 'rgba(0,0,0,0)',
       },
       dark: {
         primary: '#49DCC7',
@@ -129,6 +130,7 @@ const config: Config = {
         surfaceContainerLowest: '#0B0F0E',
         surfaceBright: '#363A39',
         surfaceDim: '#101413',
+        transparent: 'rgba(0,0,0,0)',
       },
       palettes: {
         primary: {

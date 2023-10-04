@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import CtaButtons from '@/app/components/parts/CtaButtons';
+import CtaButtons from '@/app/components/parts/CtaLinks';
 
 const Header = () => {
   return (
     <div className='navbar bg-light-background flex items-center text-light-onPrimaryContainer py-4 lg:h-20'>
       <div className='container flex'>
         <nav className='navbar-left flex items-center w-1/2 gap-5'>
-          <Image className='logo' src='/assets/logo.webp' alt='logo' width={181} height={41} priority />
+          <Link href={'/'}>
+            <Image className='logo' src='/assets/logo.webp' alt='logo' width={181} height={41} priority />
+          </Link>
           <ul className='nav-links flex gap-4 text__body-large font-medium lg:flex-row sm:flex-col'>
             <li className='nav-link'>
               <Link href={'/#features'}>Features</Link>
@@ -19,7 +21,7 @@ const Header = () => {
               <Link href={'/#book-cleaner'}>Book A Cleaner</Link>
             </li>
             <li className='nav-link'>
-              <Link href={'/#become-a-cleaner'}>Become A Cleaner</Link>
+              <Link href={'/become-a-cleaner'}>Become A Cleaner</Link>
             </li>
           </ul>
         </nav>

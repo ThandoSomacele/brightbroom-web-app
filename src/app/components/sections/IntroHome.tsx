@@ -1,8 +1,8 @@
-import CtaButtons from '../parts/CtaButtons';
+import CtaButtons from '../parts/CtaLinks';
 
 function IntroHome() {
   return (
-    <section className='py-16 bg-palettes-primary-99'>
+    <section id='intro-home' className='py-16 bg-palettes-primary-99'>
       <div className='container flex flex-col items-center gap-y-6'>
         <h2 className='text__display-medium text-center '>Welcome to BrightBroom</h2>
         <p className=' text__body-large text-center'>

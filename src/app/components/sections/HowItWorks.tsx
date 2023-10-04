@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import CtaButtons from '../parts/CtaButtons';
+import CtaButtons from '../parts/CtaLinks';
 import Steps from '../parts/Steps';
 
 const HowItWorks = () => {
   return (
-    <section className='py-16 bg-light-tertiary text-light-onTertiary'>
+    <section id='how-it-works' className='py-16 bg-light-tertiary text-light-onTertiary'>
       <div className='container flex items-center justify-between'>
         <div className='how-it-work-left w-[45%]'>
           <Image

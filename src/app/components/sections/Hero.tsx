@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import CtaButtons from '../parts/CtaButtons';
+import CtaButtons from '../parts/CtaLinks';
 
 function Hero() {
   return (
-    <section className='bg-light-onPrimaryContainer py-16 text-light-onPrimary'>
+    <section id='hero' className='bg-light-onPrimaryContainer py-16 text-light-onPrimary'>
       <div className='container flex flex-row justify-between h-full items-center'>
         <div className='hero-left w-[45%] flex flex-col gap-y-6'>
           <h1 className='text__display-large text-light-primaryContainer '>Cleaner bookings made simple</h1>
