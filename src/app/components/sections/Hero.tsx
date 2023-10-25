@@ -14,7 +14,13 @@ function Hero() {
           <CtaButtons />
         </div>
         <div className='hero-right w-[45%]'>
-          <Image src={'/sections/hero-image.webp'} alt={'Cleaned living room'} width={486} height={509} />
+          <Image
+            src={'/sections/hero-image.webp'}
+            alt={'Cleaned living room'}
+            width={486}
+            height={509}
+            style={{ width: 'auto', height: 'auto' }}
+          />
         </div>
       </div>
     </section>

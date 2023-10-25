@@ -3,6 +3,21 @@ import Link from 'next/link';
 import CtaButtons from '@/app/components/parts/CtaLinks';
 
 const Header = () => {
+  const navLinks = [
+    {
+      text: 'Features',
+      href: '/#features',
+    },
+    {
+      text: 'How It Works',
+      href: '/#how-it-works',
+    },
+    {
+      text: 'Become A Cleaner',
+      href: '/#become-a-cleaner',
+    },
+  ];
+
   return (
     <div className='navbar bg-light-background flex items-center text-light-onPrimaryContainer py-4 lg:h-20'>
       <div className='container flex'>
@@ -10,19 +25,12 @@ const Header = () => {
           <Link href={'/'}>
             <Image className='logo' src='/assets/logo.webp' alt='logo' width={181} height={41} priority />
           </Link>
-          <ul className='nav-links flex gap-4 text__body-large font-medium lg:flex-row sm:flex-col'>
-            <li className='nav-link'>
-              <Link href={'/#features'}>Features</Link>
-            </li>
-            <li className='nav-link'>
-              <Link href={'/#how-it-works'}>How It Works</Link>
-            </li>
-            <li className='nav-link md:hidden sm:block'>
-              <Link href={'/#book-cleaner'}>Book A Cleaner</Link>
-            </li>
-            <li className='nav-link'>
-              <Link href={'/become-a-cleaner'}>Become A Cleaner</Link>
-            </li>
+          <ul className='nav-links flex gap-4 text__body-large font-medium '>
+            {navLinks.map((link, i) => (
+              <li className='nav-link'>
+                <Link href={link.href}>{link.text}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <div className='navbar-right flex w-1/2 justify-end items-center'>

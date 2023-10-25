@@ -58,15 +58,15 @@
   }
 
   .text__body-large {
-    @apply font-sans text-base tracking-[0.5];
+    @apply font-sans text-lg tracking-[0.5];
   }
 
   .text__body-medium {
-    @apply font-sans text-sm tracking-[0.25];
+    @apply font-sans text-base tracking-[0.25];
   }
 
   .text__body-small {
-    @apply font-sans text-xs tracking-[0.4000000059604645];
+    @apply font-sans text-sm tracking-[0.4000000059604645];
   }
 
   .text__label-large {
