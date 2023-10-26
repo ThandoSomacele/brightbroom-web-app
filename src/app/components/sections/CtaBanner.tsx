@@ -1,4 +1,4 @@
-import CtaButtons from '../parts/CtaLinks';
+import CtaLinks from '../parts/CtaLinks';
 
 const CtaBanner = () => {
   return (
@@ -12,7 +12,7 @@ const CtaBanner = () => {
           BrightBroom
         </p>
         <div className='w-4/12'>
-          <CtaButtons />
+          <CtaLinks />
         </div>
       </div>
     </section>

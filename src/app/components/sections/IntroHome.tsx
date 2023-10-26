@@ -1,4 +1,4 @@
-import CtaButtons from '../parts/CtaLinks';
+import CtaLinks from '../parts/CtaLinks';
 
 function IntroHome() {
   return (
@@ -10,7 +10,7 @@ function IntroHome() {
           we&apos;re here to make one aspect of it easier &ndash; keeping your home spotless. With just a few clicks,
           you can book a professional cleaner for a day or even on a weekly basis, without any obligations.
         </p>
-        <CtaButtons />
+        <CtaLinks />
       </div>
     </section>
   );

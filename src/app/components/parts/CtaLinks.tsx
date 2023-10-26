@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import React from 'react';
 
-function CtaLinks() {
+function CtaLinks(props: any) {
   return (
-    <div className='cta-buttons flex gap-3'>
+    <div className={`cta-buttons flex gap-3 ${props.classes}`}>
       <Link className='btn btn-primary__outlined text__body-large' href={'/sign-up'}>
         Sign up
       </Link>

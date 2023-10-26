@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import CtaButtons from '../parts/CtaLinks';
+import CtaLinks from '../parts/CtaLinks';
 import Features from '../parts/Features';
 
 const OurFeatures = () => {
@@ -12,7 +12,7 @@ const OurFeatures = () => {
               Our Features
               <br />& Services
             </h2>
-            <CtaButtons />
+            <CtaLinks />
           </div>
           <Image
             src={'/sections/our-features-image.webp'}

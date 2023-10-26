@@ -1,28 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import mainNavData from '@/app/site-data/main-nav.json';
+import LinkList from '@/app/helpers/LinkList';
 
 const year = new Date().getFullYear();
 
 function Footer() {
+  const footerNavList = LinkList(mainNavData);
   return (
     <footer className='bg-light-onPrimaryFixed py-16 text-light-onPrimary bottom-0'>
       <div className='container flex justify-center'>
         <div className='footer-col-1 flex flex-col gap-4 w-1/5'>
           <h3 className='text__title-large'>Quick Links</h3>
-          <ul className='nav-links flex flex-col gap-4 text__body-large'>
-            <li className='nav-link'>
-              <Link href={'/#features'}>Features</Link>
-            </li>
-            <li className='nav-link'>
-              <Link href={'/#how-it-works'}>How It Works</Link>
-            </li>
-            <li className='nav-link md:hidden sm:block'>
-              <Link href={'/#book-cleaner'}>Book A Cleaner</Link>
-            </li>
-            <li className='nav-link'>
-              <Link href={'/become-a-cleaner'}>Become A Cleaner</Link>
-            </li>
-          </ul>
+          <ul className='nav-links flex flex-col gap-4 text__body-large'>{footerNavList}</ul>
         </div>
         <div className='footer-col-2 flex flex-col gap-4 w-1/5'>
           <h3 className='text__title-large'>Legal</h3>

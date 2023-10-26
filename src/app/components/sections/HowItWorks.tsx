@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import CtaButtons from '../parts/CtaLinks';
+import CtaLinks from '../parts/CtaLinks';
 import Steps from '../parts/Steps';
 
 const HowItWorks = () => {
@@ -17,7 +17,7 @@ const HowItWorks = () => {
         <div className='how-it-work-right w-[45%] flex flex-col gap-y-7'>
           <h2 className='text__display-medium '>How it works</h2>
           <Steps />
-          <CtaButtons />
+          <CtaLinks />
         </div>
       </div>
     </section>
