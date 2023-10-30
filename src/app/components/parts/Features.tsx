@@ -29,10 +29,10 @@ const Features = () => {
   ];
 
   return (
-    <ul className='features flex flex-wrap gap-8 w-full justify-end'>
+    <ul className='features flex flex-wrap gap-4'>
       {featuresList.map(feature => (
         <li
-          className='feature flex flex-col gap-3 bg-light-onPrimary drop-shadow-md rounded-lg p-8 w-64'
+          className='feature flex flex-col gap-3 bg-light-onPrimary drop-shadow-md rounded-lg p-8 w-full md:w-[48%]'
           key={feature.order}>
           <Image
             src={feature.icon}
