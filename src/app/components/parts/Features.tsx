@@ -31,15 +31,13 @@ const Features = () => {
   return (
     <ul className='features flex flex-wrap gap-4'>
       {featuresList.map(feature => (
-        <li
-          className='feature flex flex-col gap-3 bg-light-onPrimary drop-shadow-md rounded-lg p-8 w-full md:w-[48%]'
-          key={feature.order}>
+        <li className='feature flex flex-col gap-3 rounded-lg p-8 w-full md:w-[48%]' key={feature.order}>
           <Image
             src={feature.icon}
             width={70}
             height={70}
             alt={`${feature.title} icon`}
-            style={{ objectFit: 'contain' }}
+            className='object-contain rounded-full'
           />
           <div className='text flex flex-col gap-3'>
             <h3 className='text-lg font-bold w-40'>{feature.title}</h3>

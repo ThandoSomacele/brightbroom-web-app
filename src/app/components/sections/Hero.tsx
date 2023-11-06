@@ -17,7 +17,7 @@ function Hero() {
         </div>
         <div className='hero-right w-full lg:w-[45%]'>
           <Image
-            src={'/sections/hero-image.webp'}
+            src={'/assets/hero.webp'}
             alt={'Cleaned living room'}
             width={486}
             height={509}

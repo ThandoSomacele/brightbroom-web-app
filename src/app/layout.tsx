@@ -2,13 +2,24 @@ import '@/app/globals.css';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import Header from '@/app/components/layout/Header';
-import Footer from './components/layout/Footer';
+import Footer from '@/app/components/layout/Footer';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'BrightBroom | Cleaner Bookings',
-  description: 'Experience a simple way to book a cleaner on-demand.',
+  title: 'BrightBroom | Cleaner Bookings Made Simple',
+  generator: 'BrightBroom',
+  applicationName: 'BrightBroom',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['BrightBroom', 'Cleaners', 'Domestic Worker', 'Cleaning'],
+  // authors: [{ name: 'Thando Somacele' }],
+  creator: 'Thando Somacele',
+  // publisher: 'Thando Somacele',
+  // formatDetection: {
+  //   email: false,
+  //   address: false,
+  //   telephone: false,
+  // },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

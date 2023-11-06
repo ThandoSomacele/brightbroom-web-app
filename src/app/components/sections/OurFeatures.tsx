@@ -13,7 +13,7 @@ const OurFeatures = () => {
           </h2>
           <CtaLinks />
           <Image
-            src={'/sections/our-features-image.webp'}
+            src={'/assets/our-features.webp '}
             alt={'Clean bedroom with open window'}
             width={404}
             height={277}

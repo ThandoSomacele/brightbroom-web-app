@@ -14,7 +14,7 @@ const HowItWorks = () => {
       <div className='container flex flex-wrap items-center justify-between gap-6'>
         <div className='how-it-work-left w-full lg:w-[45%]'>
           <Image
-            src={'/sections/how-it-works-image.webp'}
+            src={'/assets/how-it-works.webp '}
             alt={'Clean bedroom with open window'}
             width={562}
             height={509}
