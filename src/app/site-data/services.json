@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Common Area",
+    "description": "All the serviskldjfjkaf",
+    "duration": 3,
+    "icon": "common",
+    "price": 33
+  },
+  {
+    "name": "Bedrooms",
+    "description": "All the serviskldjfjkaf",
+    "duration": 1,
+    "icon": "bedroom",
+    "price": 33
+  },
+  {
+    "name": "Bathrooms",
+    "description": "All the serviskldjfjkaf",
+    "duration": 1,
+    "icon": "bathroom",
+    "price": 33
+  }
+]
