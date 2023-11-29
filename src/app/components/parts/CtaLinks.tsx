@@ -8,8 +8,8 @@ function CtaLinks(props: any) {
         Sign up
       </Link>
 
-      <Link className='btn btn-secondary text__body-large' href={'/book-your-cleaner'}>
-        Book Your Cleaner
+      <Link className='btn btn-secondary text__body-large' href={'/book-a-cleaner'}>
+        Book a Cleaner
       </Link>
     </div>
   );
