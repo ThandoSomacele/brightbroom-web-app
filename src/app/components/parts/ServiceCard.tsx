@@ -42,11 +42,7 @@ function ServiceCard({ service }: { service: ServiceObject }) {
         </div>
 
         <div className='service-description w-full md:w-4/6'>
-          <h3 className='text-lg font-medium sm:text-xl'>
-            <a href='' className='hover:underline'>
-              {service.name}
-            </a>
-          </h3>
+          <h3 className='text-lg font-medium sm:text-xl'>{service.name}</h3>
 
           <p className='mt-1.5 text-sm text-gray-700'>{service.description}</p>
 
