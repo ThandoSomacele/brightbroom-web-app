@@ -7,7 +7,7 @@ import LinkList from '@/app/helpers/LinkList';
 const Header = () => {
   const navList = LinkList(mainNavData);
   return (
-    <div className='navbar sticky top-0 bg-light-background flex items-center text-light-onPrimaryContainer py-4 z-10'>
+    <div className='navbar sticky top-0 bg-light-background flex items-center text-light-onPrimaryContainer py-4 z-10 shadow-md'>
       <div className='container flex'>
         <nav className='navbar-left flex items-center gap-5 w-2/3 md:w-1/4 lg:w-2/3'>
           <Link href={'/'}>
