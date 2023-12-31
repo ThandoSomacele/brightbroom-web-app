@@ -3,7 +3,7 @@ import ServiceCard from '../components/parts/ServiceCard';
 import ServicesData from '@/app/site-data/services.json';
 
 const Book = () => {
-  const services = ServicesData.map((service: Object, i: number) => {
+  const services = ServicesData.map((service: any, i: number) => {
     return <ServiceCard service={service} key={i} />;
   });
 

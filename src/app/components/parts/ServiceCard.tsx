@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import CounterInput from '../ui/CounterInput';
+import ToggleSwitch from '../ui/ToggleSwitch';
 
 interface ServiceObject {
   name: String;
@@ -8,6 +9,8 @@ interface ServiceObject {
   duration: Number;
   icon: String;
   price: Number;
+  input_type: String;
+  isDisabled: Boolean;
 }
 
 function ServiceCard({ service }: { service: ServiceObject }) {
@@ -17,13 +20,15 @@ function ServiceCard({ service }: { service: ServiceObject }) {
         <Image src={'/icons/clock.svg'} width={24} height={24} alt='clock icon' />
 
         <p className='text-xs font-medium'>
-          {`approx. ${service.duration} ${Number(service.duration) > 1 ? 'hours' : 'hour'}`}
-          <sup>*</sup>
+          {`approx. ${service.duration} ${Number(service.duration) > 1 ? 'hours' : 'hours'}`}
         </p>
       </React.Fragment>
     );
   };
 
+  let inputBtn;
+  if (service.input_type === 'increment') inputBtn = <CounterInput service={service} />;
+  else inputBtn = <ToggleSwitch />;
   return (
     <div className='rounded-xl bg-white p-4 ring ring-light-primary sm:p-6 lg:p-8'>
       <div className='flex flex-col md:flex-row items-center sm:gap-8'>
@@ -41,7 +46,7 @@ function ServiceCard({ service }: { service: ServiceObject }) {
           </div>
         </div>
 
-        <div className='service-description w-full md:w-4/6'>
+        <div className='service-description w-full md:w-4/6 pt-2 md:pt-0'>
           <h3 className='text-lg font-medium sm:text-xl'>{service.name}</h3>
 
           <p className='mt-1.5 text-sm text-gray-700'>{service.description}</p>
@@ -59,7 +64,7 @@ function ServiceCard({ service }: { service: ServiceObject }) {
               <ClockIcon />
             </div>
           </div>
-          <CounterInput />
+          {inputBtn}
         </div>
       </div>
     </div>

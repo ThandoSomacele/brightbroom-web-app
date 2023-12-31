@@ -5,8 +5,8 @@
     "duration": 1,
     "icon": "common",
     "price": 33,
-    "grey_out": true,
-    "selection_type": "incremental"
+    "isDisabled": true,
+    "input_type": "increment"
   },
   {
     "name": "Kitchen",
@@ -14,8 +14,8 @@
     "duration": 2,
     "icon": "kitchen",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "incremental"
+    "isDisabled": true,
+    "input_type": "increment"
   },
   {
     "name": "Bedrooms",
@@ -23,8 +23,8 @@
     "duration": 1,
     "icon": "bedroom",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "incremental"
+    "isDisabled": false,
+    "input_type": "increment"
   },
   {
     "name": "Bathrooms",
@@ -32,17 +32,17 @@
     "duration": 1,
     "icon": "bathroom",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "incremental"
+    "isDisabled": false,
+    "input_type": "increment"
   },
   {
     "name": "Laundry & Ironing",
     "description": "Use of household laundry machine. Use of household's preffered laundry cleaning products. Collection of clothes allowed to go into the laundry machine. Relevant washing option selected on the laundry machine. Ironing all washed and dryed clothes.",
     "duration": 2,
-    "icon": "bathroom",
+    "icon": "laundry-ironing",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "radio"
+    "isDisabled": false,
+    "input_type": "switch"
   },
   {
     "name": "Oven",
@@ -50,8 +50,8 @@
     "duration": 0.5,
     "icon": "oven",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "radio"
+    "isDisabled": false,
+    "input_type": "switch"
   },
   {
     "name": "Fridge",
@@ -59,8 +59,8 @@
     "duration": 0.5,
     "icon": "fridge",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "radio"
+    "isDisabled": false,
+    "input_type": "switch"
   },
   {
     "name": "Cabinets",
@@ -68,7 +68,7 @@
     "duration": 0.5,
     "icon": "cabinets",
     "price": 33,
-    "grey_out": false,
-    "selection_type": "radio"
+    "isDisabled": false,
+    "input_type": "switch"
   }
 ]
