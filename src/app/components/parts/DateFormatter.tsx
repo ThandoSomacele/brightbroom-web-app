@@ -1,12 +1,12 @@
-import { parseISO, format } from 'date-fns'
+import { parseISO, format } from 'date-fns';
 
 type Props = {
-  dateString: string
-}
+  datestring: string;
+};
 
-const DateFormatter = ({ dateString }: Props) => {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
-}
+const DateFormatter = ({ datestring }: Props) => {
+  const date = parseISO(datestring);
+  return <time dateTime={datestring}>{format(date, 'LLLL	d, yyyy')}</time>;
+};
 
-export default DateFormatter
+export default DateFormatter;

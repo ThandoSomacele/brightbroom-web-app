@@ -1,6 +1,6 @@
 import React from 'react';
 import ServiceCard from '../components/parts/ServiceCard';
-import ServicesData from '@/app/site-data/services.json';
+import ServicesData from '@/app/app-data/services.json';
 import AddressInput from '../components/ui/AddressInput';
 
 const Book = () => {

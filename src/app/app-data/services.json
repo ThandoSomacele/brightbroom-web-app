@@ -24,7 +24,8 @@
     "icon": "bedroom",
     "price": 33,
     "isDisabled": false,
-    "input_type": "increment"
+    "input_type": "increment",
+    "initialValue": 2
   },
   {
     "name": "Bathrooms",
@@ -33,7 +34,8 @@
     "icon": "bathroom",
     "price": 33,
     "isDisabled": false,
-    "input_type": "increment"
+    "input_type": "increment",
+    "initialValue": 1
   },
   {
     "name": "Laundry & Ironing",
