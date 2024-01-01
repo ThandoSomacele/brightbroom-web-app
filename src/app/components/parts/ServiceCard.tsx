@@ -1,17 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
+
 import CounterInput from '../ui/CounterInput';
 import ToggleSwitch from '../ui/ToggleSwitch';
-
-interface ServiceObject {
-  name: String;
-  description: String;
-  duration: Number;
-  icon: String;
-  price: Number;
-  input_type: String;
-  isDisabled: Boolean;
-}
+import { ServiceObject } from '../../../../types';
 
 function ServiceCard({ service }: { service: ServiceObject }) {
   const ClockIcon = function () {

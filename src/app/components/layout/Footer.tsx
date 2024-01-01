@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import mainNavData from '@/app/site-data/main-nav.json';
+import mainNavData from '@/app/app-data/main-nav.json';
 import LinkList from '@/app/helpers/LinkList';
 
 const year = new Date().getFullYear();
