@@ -41,7 +41,7 @@
     "name": "Laundry & Ironing",
     "description": "Use of household laundry machine. Use of household's preffered laundry cleaning products. Collection of clothes allowed to go into the laundry machine. Relevant washing option selected on the laundry machine. Ironing all washed and dryed clothes.",
     "duration": 2,
-    "icon": "laundry-ironing",
+    "icon": "laundry",
     "price": 33,
     "isDisabled": false,
     "input_type": "switch"
