@@ -1,11 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import mainNavData from '@/app/app-data/main-nav.json';
 import LinkList from '@/app/helpers/LinkList';
 
-const year = new Date().getFullYear();
-
 function Footer() {
+  const year = new Date().getFullYear();
+
   const footerNavList = LinkList(mainNavData);
   return (
     <footer className='bg-light-onPrimaryFixed py-16 text-light-onPrimary bottom-0'>

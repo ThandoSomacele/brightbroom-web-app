@@ -28,7 +28,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={openSans.className}>
         <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

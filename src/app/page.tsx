@@ -3,7 +3,7 @@ import HowItWorks from '@/app/components/sections/HowItWorks';
 import IntroHome from '@/app/components/sections/IntroHome';
 import OurFeatures from './components/sections/OurFeatures';
 import CtaBanner from './components/sections/CtaBanner';
-import Book from './book-a-cleaner/page';
+import Book from './book/page';
 
 export default function Home() {
   return (
@@ -12,7 +12,8 @@ export default function Home() {
       <IntroHome />
       <HowItWorks />
       <OurFeatures />
-      <CtaBanner /> */}
+      <CtaBanner /> 
+       <Footer />*/}
       <Book />
     </main>
   );
