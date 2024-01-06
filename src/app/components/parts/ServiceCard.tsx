@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import React from 'react';
 
-import CounterInput from '../ui/CounterInput';
-import ToggleSwitch from '../ui/ToggleSwitch';
+import CounterInput from './CounterInput';
+import ToggleSwitch from './ToggleSwitch';
 import { ServiceObject } from '../../../../types';
 
 function ServiceCard({ service }: { service: ServiceObject }) {

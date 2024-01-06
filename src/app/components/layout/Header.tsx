@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CtaLinks from '@/app/components/parts/CtaLinks';
-import mainNavData from '@/app/app-data/main-nav.json';
+import mainNavData from '@/app-data/main-nav.json';
 import LinkList from '@/app/helpers/LinkList';
 
 const Header = () => {
