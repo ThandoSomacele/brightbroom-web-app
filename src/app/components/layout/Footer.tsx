@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import mainNavData from '@/app/app-data/main-nav.json';
+import mainNavData from '@/app-data/main-nav.json';
 import LinkList from '@/app/helpers/LinkList';
 
 function Footer() {

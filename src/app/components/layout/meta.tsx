@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import { ReactNode } from 'react';
 
-const Meta = () => {
+const Meta = ({ children }: { children: ReactNode }) => {
   return (
     <Head>
       <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
@@ -11,6 +12,7 @@ const Meta = () => {
       <link rel='shortcut icon' href='/favicon/favicon.ico' />
       <meta name='description' content='Experience a simple way to book a cleaner on-demand on BrightBroom.' />
       <meta property='og:image' content='/assets/hero.webp' />
+      {children && children}
     </Head>
   );
 };

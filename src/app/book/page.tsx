@@ -1,7 +1,7 @@
 import React from 'react';
 import ServiceCard from '../components/parts/ServiceCard';
-import ServicesData from '@/app/app-data/services.json';
-import AddressInput from '../components/ui/AddressInput';
+import ServicesData from '@/app-data/services.json';
+import AddressInput from '../components/parts/AddressInput';
 
 const Book = () => {
   const services = ServicesData.map((service: any, i: number) => {
