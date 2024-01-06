@@ -60,20 +60,14 @@ function page() {
                       />
                     </form>
 
-                    <button className='text-gray-600 transition hover:text-red-600'>
-                      <span className='sr-only'>Remove item</span>
+                    <button className='text-palettes-neutral-20 transition hover:text-light-primaryFixed'>
+                      <span className='sr-only'>Edit item</span>
 
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke-width='1.5'
-                        stroke='currentColor'
-                        className='h-4 w-4'>
+                      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='h-4 w-4'>
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          d='M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          d='M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z'
                         />
                       </svg>
                     </button>
@@ -119,20 +113,14 @@ function page() {
                       />
                     </form>
 
-                    <button className='text-gray-600 transition hover:text-red-600'>
-                      <span className='sr-only'>Remove item</span>
+                    <button className='text-palettes-neutral-20 transition hover:text-light-primaryFixed'>
+                      <span className='sr-only'>Edit item</span>
 
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke-width='1.5'
-                        stroke='currentColor'
-                        className='h-4 w-4'>
+                      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='h-4 w-4'>
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          d='M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          d='M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z'
                         />
                       </svg>
                     </button>
@@ -178,20 +166,14 @@ function page() {
                       />
                     </form>
 
-                    <button className='text-gray-600 transition hover:text-red-600'>
-                      <span className='sr-only'>Remove item</span>
+                    <button className='text-palettes-neutral-20 transition hover:text-light-primaryFixed'>
+                      <span className='sr-only'>Edit item</span>
 
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke-width='1.5'
-                        stroke='currentColor'
-                        className='h-4 w-4'>
+                      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' className='h-4 w-4'>
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
-                          d='M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          d='M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z'
                         />
                       </svg>
                     </button>
@@ -229,12 +211,12 @@ function page() {
                         xmlns='http://www.w3.org/2000/svg'
                         fill='none'
                         viewBox='0 0 24 24'
-                        stroke-width='1.5'
+                        strokeWidth='1.5'
                         stroke='currentColor'
                         className='-ms-1 me-1.5 h-4 w-4'>
                         <path
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                           d='M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z'
                         />
                       </svg>
