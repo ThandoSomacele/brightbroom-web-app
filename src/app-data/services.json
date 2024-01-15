@@ -4,16 +4,16 @@
     "description": "Dusting of furniture and surfaces. Mopping and vacuuming of floors. Dusting and wiping of skirtings. Dusting and wiping of electronics, and other ornaments. Dusting and wiping of light switches and other fixtures. ",
     "duration": 1,
     "icon": "common",
-    "price": 33,
+    "price": 36,
     "isDisabled": true,
     "input_type": "increment"
   },
   {
     "name": "Kitchen",
     "description": "Washing dishes. Wiping surfaces, sinks and appliances.Wiping outside of cupboards and fridge. Emptying bins and cleaning bin area.Wiping floors. Mopping floors.",
-    "duration": 2,
+    "duration": 1,
     "icon": "kitchen",
-    "price": 33,
+    "price": 36,
     "isDisabled": true,
     "input_type": "increment"
   },
@@ -25,7 +25,7 @@
     "price": 33,
     "isDisabled": false,
     "input_type": "increment",
-    "initialValue": 2
+    "defaultRooms": 2
   },
   {
     "name": "Bathrooms",
@@ -35,7 +35,7 @@
     "price": 33,
     "isDisabled": false,
     "input_type": "increment",
-    "initialValue": 1
+    "defaultRooms": 1
   },
   {
     "name": "Laundry & Ironing",
