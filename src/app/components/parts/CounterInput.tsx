@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
-import { ServiceObject } from '../../../../types';
+import React, { useState, Dispatch, SetStateAction } from 'react';
+import { ServiceObject, ClickEvent } from '../../../../types';
 
-function CounterInput({ service }: { service: ServiceObject }) {
-  let [count, setCount] = useState(service.initialValue);
+function CounterInput({
+  service,
+  price,
+  setPrice,
+  totalDuration,
+  setTotalDuration,
+}: {
+  service: ServiceObject;
+  setPrice: Dispatch<SetStateAction<number>>;
+  price: number;
+  totalDuration: number;
+  setTotalDuration: Dispatch<SetStateAction<number>>;
+}) {
+  let [count, setCount] = useState(service.defaultRooms);
 
   // Coutner
 
-  const incrementCounter = () => {
-    if (count < 8) setCount(count + 1);
+  const incrementCounter = (e: ClickEvent) => {
+    e.preventDefault();
+    if (totalDuration < 10) {
+      setCount(count + 1);
+      setPrice((price += service.price));
+      setTotalDuration((totalDuration += service.duration));
+    }
   };
-  const decrementCounter = () => {
-    if (count > 1) setCount(count - 1);
+  const decrementCounter = (e: ClickEvent) => {
+    e.preventDefault();
+    if (count > 1) {
+      setCount(count - 1);
+      setPrice((price -= service.price));
+      setTotalDuration((totalDuration -= service.duration));
+    }
   };
 
   // const minusCounter;

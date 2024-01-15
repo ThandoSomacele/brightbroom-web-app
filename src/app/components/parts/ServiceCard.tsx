@@ -1,13 +1,25 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 import CounterInput from './CounterInput';
 import ToggleSwitch from './ToggleSwitch';
 import { ServiceObject } from '../../../../types';
 
-function ServiceCard({ service }: { service: ServiceObject }) {
+function ServiceCard({
+  service,
+  price,
+  setPrice,
+  totalDuration,
+  setTotalDuration,
+}: {
+  service: ServiceObject;
+  price: number;
+  setPrice: Dispatch<SetStateAction<number>>;
+  totalDuration: number;
+  setTotalDuration: Dispatch<SetStateAction<number>>;
+}) {
   const ClockIcon = function () {
     return (
       <React.Fragment>
@@ -21,8 +33,27 @@ function ServiceCard({ service }: { service: ServiceObject }) {
   };
 
   let inputBtn;
-  if (service.input_type === 'increment') inputBtn = <CounterInput service={service} />;
-  else inputBtn = <ToggleSwitch />;
+  if (service.input_type === 'increment')
+    inputBtn = (
+      <CounterInput
+        service={service}
+        setPrice={setPrice}
+        price={price}
+        totalDuration={totalDuration}
+        setTotalDuration={setTotalDuration}
+      />
+    );
+  else
+    inputBtn = (
+      <ToggleSwitch
+        service={service}
+        setPrice={setPrice}
+        price={price}
+        totalDuration={totalDuration}
+        setTotalDuration={setTotalDuration}
+      />
+    );
+
   return (
     <div className='rounded-xl bg-white p-4 ring ring-light-primary sm:p-6 lg:p-8'>
       <div className='flex flex-col md:flex-row items-center sm:gap-8'>
