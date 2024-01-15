@@ -11,7 +11,7 @@ interface ServiceObject {
   price: number;
   input_type: string;
   isDisabled: Boolean;
-  initialValue: number;
+  defaultRooms: number;
 }
 
 export type { FormEvent, ClickEvent, ChangeEvent, SyntheticEvent, ServiceObject };
