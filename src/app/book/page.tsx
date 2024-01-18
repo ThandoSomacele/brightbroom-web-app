@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import ServiceCard from '../components/parts/ServiceCard';
-import ServicesData from '@/app-data/services.json';
+import ServicesData from '@/data/services.json';
 import AddressInput from '../components/parts/AddressInput';
 
 // Service Default Prices
@@ -41,8 +41,13 @@ const Book = () => {
   });
 
   return (
-    <div className='container py-20 flex flex-col gap-9'>
+    <div className='container py-20 flex flex-col gap-9 relative'>
       <form>
+        <div className='fixed top-[79px] right-0 left-0 w-full z-10 bg-palettes-neutral-90 py-2'>
+          <div className='container'>
+            {totalDuration} Hours • R {price}
+          </div>
+        </div>
         <AddressInput />
         <div className='service-selection flex flex-col gap-10 my-8'>{services}</div>
         <button type='submit' className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none'>

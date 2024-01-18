@@ -2,18 +2,18 @@
   {
     "name": "Living Room Areas",
     "description": "Dusting of furniture and surfaces. Mopping and vacuuming of floors. Dusting and wiping of skirtings. Dusting and wiping of electronics, and other ornaments. Dusting and wiping of light switches and other fixtures. ",
-    "duration": 1,
+    "duration": 0.5,
     "icon": "common",
-    "price": 36,
+    "price": 33,
     "isDisabled": true,
     "input_type": "increment"
   },
   {
     "name": "Kitchen",
     "description": "Washing dishes. Wiping surfaces, sinks and appliances.Wiping outside of cupboards and fridge. Emptying bins and cleaning bin area.Wiping floors. Mopping floors.",
-    "duration": 1,
+    "duration": 1.5,
     "icon": "kitchen",
-    "price": 36,
+    "price": 92,
     "isDisabled": true,
     "input_type": "increment"
   },
@@ -42,7 +42,7 @@
     "description": "Use of household laundry machine. Use of household's preffered laundry cleaning products. Collection of clothes allowed to go into the laundry machine. Relevant washing option selected on the laundry machine. Ironing all washed and dryed clothes.",
     "duration": 2,
     "icon": "laundry",
-    "price": 33,
+    "price": 66,
     "isDisabled": false,
     "input_type": "switch"
   },
