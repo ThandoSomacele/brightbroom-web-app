@@ -1,5 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import { ServiceObject, ClickEvent } from '../../../../types';
+import BookingAlert from '../alerts/BookingAlert';
 
 function CounterInput({
   service,
@@ -18,20 +19,33 @@ function CounterInput({
 
   // Coutner
 
-  const incrementCounter = (e: ClickEvent) => {
+  const incrementCounterHandler = (e: ClickEvent) => {
     e.preventDefault();
+    if (totalDuration + service.duration > 10) {
+      alert('Max hours is 10. \nAdjust to prioritise needed services.');
+      return;
+    }
+
     if (totalDuration < 10) {
       setCount(count + 1);
       setPrice((price += service.price));
       setTotalDuration((totalDuration += service.duration));
+      return;
     }
   };
-  const decrementCounter = (e: ClickEvent) => {
+  const decrementCounterHandler = (e: ClickEvent) => {
     e.preventDefault();
+
+    if (totalDuration - service.duration < 4) {
+      alert('Minimum hours is 4. \nAdjust to prioritise needed services.');
+      return;
+    }
+
     if (count > 1) {
       setCount(count - 1);
       setPrice((price -= service.price));
       setTotalDuration((totalDuration -= service.duration));
+      return;
     }
   };
 
@@ -44,7 +58,7 @@ function CounterInput({
       </label>
       <div className='flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1'>
         <button
-          onClick={decrementCounter}
+          onClick={decrementCounterHandler}
           data-action='increment'
           className={`${service.isDisabled ? 'bg-light-surfaceDim' : 'bg-light-primaryFixed'} ${
             service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'
@@ -65,7 +79,7 @@ function CounterInput({
           defaultValue={count}
           disabled={service.isDisabled ? true : false}></input>
         <button
-          onClick={incrementCounter}
+          onClick={incrementCounterHandler}
           data-action='decrement'
           className={`${service.isDisabled ? 'bg-light-surfaceDim' : 'bg-light-primaryFixed'} ${
             service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'

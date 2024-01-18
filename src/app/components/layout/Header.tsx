@@ -1,19 +1,34 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CtaLinks from '@/app/components/parts/CtaLinks';
-import mainNavData from '@/app-data/main-nav.json';
 import LinkList from '@/app/helpers/LinkList';
 
+// Head Nav Links
+const navLinks = [
+  {
+    text: 'Features',
+    href: '/#features',
+  },
+  {
+    text: 'How It Works',
+    href: '/#how-it-works',
+  },
+  {
+    text: 'Become A Cleaner',
+    href: '/become-a-cleaner',
+  },
+];
+
+// Head Component
 const Header = () => {
   const isLoggedIn = true;
 
-  const navList = LinkList(mainNavData);
+  const navList = LinkList(navLinks);
 
   return (
-    <div className='navbar sticky top-[-1px] bg-light-background items-center text-light-onPrimaryContainer py-4 z-10 shadow-md'>
+    <div className='navbar sticky top-[-1px] bg-light-background text-light-onPrimaryContainer flex items-center h-20 z-10 shadow-md'>
       <div className='container'>
         <div className='flex'>
-          {' '}
           <nav className='navbar-left flex items-center gap-5 w-2/3 md:w-1/4 lg:w-2/3'>
             <Link href={'/'}>
               <Image className='logo' src='/assets/logo.webp' alt='logo' width={181} height={41} priority />

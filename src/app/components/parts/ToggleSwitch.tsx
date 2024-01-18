@@ -17,17 +17,29 @@ function ToggleSwitch({
   const [isChecked, setChecked] = useState(false);
 
   const addonSwitchHandler = (e: ChangeEvent) => {
-    // TODO
+    e.preventDefault();
+    if (totalDuration + service.duration > 10) {
+      alert('Maximum hours is 10. \nAdjust to prioritise needed services.');
+      return;
+    }
+
     if (isChecked === false && totalDuration + service.duration <= 10) {
       setChecked(true);
       setPrice((price += service.price));
       setTotalDuration((totalDuration += service.duration));
+      return;
     }
 
-    if (isChecked === true && totalDuration >= 3) {
+    if (totalDuration - service.duration < 4) {
+      alert('Minimum hours is 4. \nAdjust to prioritise needed services.');
+      return;
+    }
+
+    if (isChecked === true && totalDuration >= 4) {
       setChecked(false);
       setPrice(price - service.price);
       setTotalDuration((totalDuration -= service.duration));
+      return;
     }
   };
 
