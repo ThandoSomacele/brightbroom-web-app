@@ -18,15 +18,15 @@ function ToggleSwitch({
 
   const addonSwitchHandler = (e: ChangeEvent) => {
     // TODO
-    if (isChecked === false && totalDuration < 10 && (totalDuration += service.duration) > 10) {
+    if (isChecked === false && totalDuration + service.duration <= 10) {
       setChecked(true);
       setPrice((price += service.price));
       setTotalDuration((totalDuration += service.duration));
     }
 
-    if (isChecked === true && totalDuration > 3) {
+    if (isChecked === true && totalDuration >= 3) {
       setChecked(false);
-      setPrice((price -= service.price));
+      setPrice(price - service.price);
       setTotalDuration((totalDuration -= service.duration));
     }
   };
