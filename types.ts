@@ -6,7 +6,7 @@ type SyntheticEvent = React.SyntheticEvent<EventTarget>;
 interface ServiceObject {
   name: string;
   description: string;
-  duration: number;
+  hours: number;
   icon: string;
   price: number;
   input_type: string;

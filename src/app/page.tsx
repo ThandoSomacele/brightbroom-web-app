@@ -3,7 +3,7 @@ import HowItWorks from '@/app/components/sections/HowItWorks';
 import IntroHome from '@/app/components/sections/IntroHome';
 import OurFeatures from './components/sections/OurFeatures';
 import CtaBanner from './components/sections/CtaBanner';
-import Book from './book/page';
+import Book from './(booking)/book/page';
 
 export default function Home() {
   return (
