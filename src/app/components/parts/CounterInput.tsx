@@ -6,14 +6,14 @@ function CounterInput({
   service,
   price,
   setPrice,
-  totalDuration,
-  setTotalDuration,
+  totalHours,
+  setTotalHours,
 }: {
   service: ServiceObject;
   setPrice: Dispatch<SetStateAction<number>>;
   price: number;
-  totalDuration: number;
-  setTotalDuration: Dispatch<SetStateAction<number>>;
+  totalHours: number;
+  setTotalHours: Dispatch<SetStateAction<number>>;
 }) {
   let [count, setCount] = useState(service.defaultRooms);
 
@@ -21,31 +21,27 @@ function CounterInput({
 
   const incrementCounterHandler = (e: ClickEvent) => {
     e.preventDefault();
-    if (totalDuration + service.duration > 10) {
+    if (totalHours + service.hours > 10) {
       alert('Max hours is 10. \nAdjust to prioritise needed services.');
-      return;
     }
 
-    if (totalDuration < 10) {
+    if (totalHours < 10) {
       setCount(count + 1);
       setPrice((price += service.price));
-      setTotalDuration((totalDuration += service.duration));
-      return;
+      setTotalHours((totalHours += service.hours));
     }
   };
   const decrementCounterHandler = (e: ClickEvent) => {
     e.preventDefault();
 
-    if (totalDuration - service.duration < 4) {
+    if (totalHours - service.hours < 4) {
       alert('Minimum hours is 4. \nAdjust to prioritise needed services.');
-      return;
     }
 
     if (count > 1) {
       setCount(count - 1);
       setPrice((price -= service.price));
-      setTotalDuration((totalDuration -= service.duration));
-      return;
+      setTotalHours((totalHours -= service.hours));
     }
   };
 
@@ -75,9 +71,10 @@ function CounterInput({
           } ${
             service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'
           } text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center`}
-          name='custom-input-number'
-          defaultValue={count}
-          disabled={service.isDisabled ? true : false}></input>
+          name={service.name}
+          value={count}
+          disabled={service.isDisabled ? true : false}
+          readOnly></input>
         <button
           onClick={incrementCounterHandler}
           data-action='decrement'

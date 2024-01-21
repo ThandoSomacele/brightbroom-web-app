@@ -11,8 +11,9 @@ function BookedItems() {
             src='/icons/bedroom.svg'
             alt='bedroom icon'
             className='h-10 w-10 rounded object-contain'
-            width={'16'}
-            height={'16'}
+            width={16}
+            height={16}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
 
@@ -64,8 +65,9 @@ function BookedItems() {
             src='/icons/bathroom.svg'
             alt='bathroom icon'
             className='h-10 w-10 rounded object-contain'
-            width={'16'}
-            height={'16'}
+            width={16}
+            height={16}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
 
@@ -117,8 +119,9 @@ function BookedItems() {
             src='/icons/laundry.svg'
             alt='bedroom icon'
             className='h-10 w-10 rounded object-contain'
-            width={'16'}
-            height={'16'}
+            width={16}
+            height={16}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
 

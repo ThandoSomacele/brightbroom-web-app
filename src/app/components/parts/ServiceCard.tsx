@@ -11,14 +11,14 @@ function ServiceCard({
   service,
   price,
   setPrice,
-  totalDuration,
-  setTotalDuration,
+  totalHours,
+  setTotalHours,
 }: {
   service: ServiceObject;
   price: number;
   setPrice: Dispatch<SetStateAction<number>>;
-  totalDuration: number;
-  setTotalDuration: Dispatch<SetStateAction<number>>;
+  totalHours: number;
+  setTotalHours: Dispatch<SetStateAction<number>>;
 }) {
   const ClockIcon = function () {
     return (
@@ -26,7 +26,7 @@ function ServiceCard({
         <Image src={'/icons/clock.svg'} width={24} height={24} alt='clock icon' />
 
         <p className='text-xs font-medium'>
-          {`approx. ${service.duration} ${Number(service.duration) > 1 ? 'hours' : 'hours'}`}
+          {`approx. ${service.hours} ${Number(service.hours) > 1 ? 'hours' : 'hours'}`}
         </p>
       </React.Fragment>
     );
@@ -39,8 +39,8 @@ function ServiceCard({
         service={service}
         setPrice={setPrice}
         price={price}
-        totalDuration={totalDuration}
-        setTotalDuration={setTotalDuration}
+        totalHours={totalHours}
+        setTotalHours={setTotalHours}
       />
     );
   else
@@ -49,8 +49,8 @@ function ServiceCard({
         service={service}
         setPrice={setPrice}
         price={price}
-        totalDuration={totalDuration}
-        setTotalDuration={setTotalDuration}
+        totalHours={totalHours}
+        setTotalHours={setTotalHours}
       />
     );
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import CheckoutProgressBar from '../components/parts/CheckoutProgressBar';
-import ProvidedCleaner from '../components/parts/ProvidedCleaner';
-import CardPayment from '../components/parts/CardPayment';
-import BookedItems from '../components/parts/BookedItems';
+import CheckoutProgressBar from '../../components/parts/CheckoutProgressBar';
+import ProvidedCleaner from '../../components/parts/ProvidedCleaner';
+import CardPayment from '../../components/parts/CardPayment';
+import BookedItems from '../../components/parts/BookedItems';
 
 function page() {
   return (
