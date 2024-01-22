@@ -1,8 +1,22 @@
+import { useRef } from 'react';
 import { ClickEvent } from '../../../../types';
 
+interface BookingData {
+  'bedroom': number;
+  'bathroom': number;
+  'laundary & ironing': string;
+  'fridge': string;
+  'oven': string;
+  'cabinents': string;
+  'totalHour': number;
+}
+
 // Fetch Fn
-async function getData() {
-  const res = await fetch('/api/createBooking');
+async function postData(data: BodyInit) {
+  const res = await fetch('/api/createBooking', {
+    method: 'POST',
+    body: data,
+  });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -15,12 +29,19 @@ async function getData() {
 }
 
 // Component
-function BookBtn() {
+function BookBtn({ totalHours }: { totalHours: number }) {
+  const bookingForm = useRef(document.querySelector('#bookingForm'));
   const actionHandler = async (e: ClickEvent) => {
     e.preventDefault();
-    console.log(' coming...');
-    const data = await getData();
-    console.log(data);
+
+    console.log(bookingForm);
+
+    const bookingFormData = new FormData(bookingForm);
+
+    // bookingFormData.append('hours', '2');
+    console.log(bookingFormData.keys());
+
+    // const data = await postData(bookingFormData);
   };
 
   return (

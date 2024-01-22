@@ -67,7 +67,7 @@ function page() {
                   </div> */}
 
                   <div className='flex justify-end'>
-                    <a href='#' className='btn btn-primary'>
+                    <a href='/checkout' className='btn btn-primary'>
                       Checkout
                     </a>
                   </div>

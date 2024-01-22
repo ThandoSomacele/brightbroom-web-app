@@ -1,9 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ServiceCard from '../../components/parts/ServiceCard';
 import ServicesData from '@/data/services.json';
 import AddressInput from '../../components/parts/AddressInput';
 import BookBtn from '../../components/parts/BookBtn';
+import { ClickEvent } from '../../../../types';
 
 // Service Default Prices
 const _livingRoomPrice = ServicesData[0].price;
@@ -27,6 +28,9 @@ const Book = () => {
     _livingRoomHours + _kitchenHours + _bedroomDefaultHours + _bathroomDefaultHours
   );
 
+  // Refs
+  const formRef = useRef();
+
   //
   const services = ServicesData.map((service: any, i: number) => {
     return (
@@ -41,9 +45,23 @@ const Book = () => {
     );
   });
 
+  const bookingForm = useRef('#bookingForm');
+  const actionHandler = async (e: ClickEvent) => {
+    e.preventDefault();
+
+    console.log(bookingForm);
+
+    // const bookingFormData = new FormData(bookingForm);
+
+    // // bookingFormData.append('hours', '2');
+    // console.log(bookingFormData.keys());
+
+    // const data = await postData(bookingFormData);
+  };
+
   return (
     <div className='container py-10 flex flex-col gap-9 relative'>
-      <form>
+      <form id='bookingForm' ref={formRef}>
         <div className='sticky top-[79px] w-full z-10 bg-palettes-neutral-90 py-2 mb-8'>
           <div className='container flex justify-center md:ml-9 text-lg'>
             {totalHours} Hours • R {price}
@@ -51,7 +69,12 @@ const Book = () => {
         </div>
         <AddressInput />
         <div className='service-selection flex flex-col gap-10 my-8'>{services}</div>
-        <BookBtn />
+        <button
+          type='submit'
+          onClick={actionHandler}
+          className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none'>
+          Book a Cleaner
+        </button>
       </form>
       {/* <button className='btn btn-secondary fixed bottom-16 right-4'>down</button> */}
     </div>
