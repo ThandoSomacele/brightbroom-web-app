@@ -3,8 +3,6 @@ import React, { useState, useRef } from 'react';
 import ServiceCard from '../../components/parts/ServiceCard';
 import ServicesData from '@/data/services.json';
 import AddressInput from '../../components/parts/AddressInput';
-import BookBtn from '../../components/parts/BookBtn';
-import { ClickEvent } from '../../../../types';
 
 // Service Default Prices
 const _livingRoomPrice = ServicesData[0].price;
@@ -29,7 +27,7 @@ const Book = () => {
   );
 
   // Refs
-  const formRef = useRef();
+  const formRef = useRef(null);
 
   //
   const services = ServicesData.map((service: any, i: number) => {
@@ -45,23 +43,33 @@ const Book = () => {
     );
   });
 
-  const bookingForm = useRef('#bookingForm');
-  const actionHandler = async (e: ClickEvent) => {
-    e.preventDefault();
+  // Fetch Fn
+  async function postData(data: BodyInit) {
+    const res = await fetch('/api/createBooking', {
+      method: 'POST',
+      body: data,
+    });
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
 
-    console.log(bookingForm);
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error('Failed to fetch data');
+    }
 
-    // const bookingFormData = new FormData(bookingForm);
+    return res.text();
+  }
 
-    // // bookingFormData.append('hours', '2');
-    // console.log(bookingFormData.keys());
-
-    // const data = await postData(bookingFormData);
+  const actionHandler = async (formData: FormData) => {
+    // Display the key/value pairs
+    for (const pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
   };
 
   return (
     <div className='container py-10 flex flex-col gap-9 relative'>
-      <form id='bookingForm' ref={formRef}>
+      <form action={actionHandler}>
         <div className='sticky top-[79px] w-full z-10 bg-palettes-neutral-90 py-2 mb-8'>
           <div className='container flex justify-center md:ml-9 text-lg'>
             {totalHours} Hours • R {price}
@@ -69,10 +77,7 @@ const Book = () => {
         </div>
         <AddressInput />
         <div className='service-selection flex flex-col gap-10 my-8'>{services}</div>
-        <button
-          type='submit'
-          onClick={actionHandler}
-          className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none'>
+        <button type='submit' className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none'>
           Book a Cleaner
         </button>
       </form>

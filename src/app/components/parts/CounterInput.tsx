@@ -49,27 +49,27 @@ function CounterInput({
 
   return (
     <div className='custom-number-input w-32'>
-      <label htmlFor='custom-input-number' className='hidden w-full text-light-onPrimaryFixed text-sm font-semibold'>
+      <label htmlFor={service.name} className='hidden w-full text-light-onPrimaryFixed text-sm font-semibold'>
         Counter Input
       </label>
       <div className='flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1'>
         <button
           onClick={decrementCounterHandler}
           data-action='increment'
-          className={`${service.isDisabled ? 'bg-light-surfaceDim' : 'bg-light-primaryFixed'} ${
-            service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'
-          } ${service.isDisabled ? 'text-light-surfaceDim' : 'hover:text-light-onPrimaryFixed'} 
-          ${service.isDisabled ? 'bg-light-surfaceDim' : 'hover:bg-light-primaryFixedDim'}  h-full w-20 rounded-l ${
-            service.isDisabled ? 'cursor-default' : 'cursor-pointer'
-          } outline-none `}>
+          className={`${service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'} ${
+            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
+          } ${service.isDisabled ? 'text-palettes-neutralVariant-95' : 'hover:text-light-onPrimaryFixed'} 
+          ${
+            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'hover:bg-light-primaryFixedDim'
+          }  h-full w-20 rounded-l ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'} outline-none `}>
           <span className='m-auto text-2xl font-thin'>−</span>
         </button>
         <input
           type='number'
           className={`outline-none focus:outline-none text-center w-full ${
-            service.isDisabled ? 'bg-light-surfaceDim' : 'bg-light-primaryFixed'
+            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'
           } ${
-            service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'
+            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
           } text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center`}
           name={service.name}
           value={count}
@@ -78,10 +78,10 @@ function CounterInput({
         <button
           onClick={incrementCounterHandler}
           data-action='decrement'
-          className={`${service.isDisabled ? 'bg-light-surfaceDim' : 'bg-light-primaryFixed'} ${
-            service.isDisabled ? 'text-light-surfaceDim' : 'text-light-onPrimaryFixed'
-          } ${service.isDisabled ? 'text-light-surfaceDim' : 'hover:text-light-onPrimaryFixed'} ${
-            service.isDisabled ? 'bg-light-surfaceDim' : 'hover:bg-light-primaryFixedDim'
+          className={`${service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'} ${
+            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
+          } ${service.isDisabled ? 'text-palettes-neutralVariant-95' : 'hover:text-light-onPrimaryFixed'} ${
+            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'hover:bg-light-primaryFixedDim'
           } h-full w-20 rounded-r ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'}`}>
           <span className='m-auto text-2xl font-thin'>+</span>
         </button>
