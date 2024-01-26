@@ -1,12 +1,12 @@
 // import { cookies } from 'next/headers';
+// import qs, { stringify } from 'querystring';
 
 export async function GET(request: Request) {
-  // const cookieStore = cookies();
-  // const token = cookieStore.get('token');
-
-  return new Response('Hello, Next.js!', {
+  const bookingData = request.body;
+  console.log(bookingData);
+  return new Response('bookingData', {
     status: 200,
-    headers: { 'Set-Cookie': `name=thando` },
+    headers: { 'Set-Cookie': 'name=thando' },
   });
 }
 

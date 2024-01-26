@@ -44,10 +44,15 @@ const Book = () => {
   });
 
   // Fetch Fn
-  async function postData(data: BodyInit) {
+
+  const actionHandler = async (formData: FormData) => {
+    // Display the key/value pairs
+    for (const pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
     const res = await fetch('/api/createBooking', {
       method: 'POST',
-      body: data,
+      body: formData,
     });
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
@@ -57,14 +62,7 @@ const Book = () => {
       throw new Error('Failed to fetch data');
     }
 
-    return res.text();
-  }
-
-  const actionHandler = async (formData: FormData) => {
-    // Display the key/value pairs
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
+    return res.json();
   };
 
   return (
