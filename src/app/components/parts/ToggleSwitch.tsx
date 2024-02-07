@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
-import { ServiceObject, ChangeEvent } from '../../../../types';
+import { ServiceObject, ChangeEvent, BookingObject } from '../../../../types';
 
 function ToggleSwitch({
   service,
@@ -7,36 +7,54 @@ function ToggleSwitch({
   setPrice,
   totalHours,
   setTotalHours,
+  formData,
+  setFormData,
 }: {
   service: ServiceObject;
   price: number;
   setPrice: Dispatch<SetStateAction<number>>;
   totalHours: number;
   setTotalHours: Dispatch<SetStateAction<number>>;
+  formData: BookingObject;
+  setFormData: Dispatch<SetStateAction<BookingObject>>;
 }) {
-  const [isChecked, setChecked] = useState(false);
+  const [inputValue, setInputValue] = useState('off');
+  const [isChecked, setIsChecked] = useState(false);
 
-  const addonSwitchHandler = (e: ChangeEvent) => {
-    e.preventDefault();
-    // TODO
-    if (totalHours + service.hours > 10) {
+  const handleChange = (event: ChangeEvent) => {
+    if (totalHours + service.hours > 10 && !isChecked) {
+      setIsChecked(false);
       alert('Maximum hours is 10. \nAdjust to prioritise needed services.');
+      return;
     }
 
-    if (isChecked === false && totalHours + service.hours <= 10) {
-      setChecked(true);
+    if (totalHours - service.hours < 4 && isChecked) {
+      alert('Minimum hours is 4. \nAdjust to prioritise needed services.');
+      return;
+    }
+
+    const { name, checked } = event.target;
+
+    if (!isChecked) {
       setPrice((price += service.price));
       setTotalHours((totalHours += service.hours));
+      setIsChecked(checked);
+      setInputValue('on');
+
+      // formData change
+      setFormData(prevFormData => ({ ...prevFormData, price, totalHours, [name]: inputValue }));
+      console.log(formData);
     }
 
-    if (totalHours - service.hours < 4) {
-      alert('Minimum hours is 4. \nAdjust to prioritise needed services.');
-    }
-
-    if (isChecked === true && totalHours >= 4) {
-      setChecked(false);
-      setPrice(price - service.price);
+    if (isChecked) {
+      setPrice((price -= service.price));
       setTotalHours((totalHours -= service.hours));
+      setIsChecked(checked);
+      setInputValue('off');
+
+      // formData change
+      setFormData(prevFormData => ({ ...prevFormData, price, totalHours, [name]: inputValue }));
+      console.log(formData);
     }
   };
 
@@ -44,13 +62,14 @@ function ToggleSwitch({
     <label
       htmlFor={service.name}
       className='relative h-8 w-14 cursor-pointer [-webkit-tap-highlight-color:_transparent]'>
+      <span className='sr-only'>{service.name}</span>
       <input
         type='checkbox'
-        onChange={addonSwitchHandler}
+        onChange={handleChange}
         id={service.name}
         name={service.name}
-        value='Added'
-        defaultChecked={false}
+        checked={isChecked}
+        value={inputValue}
         className='peer sr-only [&:checked_+_span_svg[data-checked-icon]]:block [&:checked_+_span_svg[data-unchecked-icon]]:hidden'
       />
 

@@ -13,5 +13,15 @@ interface ServiceObject {
   isDisabled: Boolean;
   defaultRooms: number;
 }
+interface BookingObject {
+  'totalHours': number;
+  'price': number;
+  'bedrooms': number;
+  'bathrooms': number;
+  'laundry & ironing': String;
+  'oven': String;
+  'fridge': String;
+  'cabinets': String;
+}
 
-export type { FormEvent, ClickEvent, ChangeEvent, SyntheticEvent, ServiceObject };
+export type { FormEvent, ClickEvent, ChangeEvent, SyntheticEvent, ServiceObject, BookingObject };
