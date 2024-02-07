@@ -2,10 +2,9 @@
 
 import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react';
-
 import CounterInput from './CounterInput';
 import ToggleSwitch from './ToggleSwitch';
-import { ServiceObject } from '../../../../types';
+import { ServiceObject, BookingObject } from '../../../../types';
 
 function ServiceCard({
   service,
@@ -13,12 +12,16 @@ function ServiceCard({
   setPrice,
   totalHours,
   setTotalHours,
+  formData,
+  setFormData,
 }: {
   service: ServiceObject;
   price: number;
   setPrice: Dispatch<SetStateAction<number>>;
   totalHours: number;
   setTotalHours: Dispatch<SetStateAction<number>>;
+  formData: BookingObject;
+  setFormData: Dispatch<SetStateAction<BookingObject>>;
 }) {
   const ClockIcon = function () {
     return (
@@ -41,6 +44,12 @@ function ServiceCard({
         price={price}
         totalHours={totalHours}
         setTotalHours={setTotalHours}
+        formData={formData}
+        setFormData={setFormData}
+        // bedrooms={bedrooms}
+        // setBedrooms={setBedrooms}
+        // bathrooms={bathrooms}
+        // setBathrooms={setBathrooms}
       />
     );
   else
@@ -51,6 +60,8 @@ function ServiceCard({
         price={price}
         totalHours={totalHours}
         setTotalHours={setTotalHours}
+        formData={formData}
+        setFormData={setFormData}
       />
     );
 
