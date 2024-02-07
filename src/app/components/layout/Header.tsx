@@ -26,7 +26,7 @@ const Header = () => {
   const navList = LinkList(navLinks);
 
   return (
-    <div className='navbar sticky top-[-1px] bg-light-background text-light-onPrimaryContainer flex items-center h-20 z-10 shadow-md'>
+    <div className='navbar sticky top-[-1px] bg-light-background text-light-onPrimaryContainer flex items-center h-20 z-50 shadow-md'>
       <div className='container'>
         <div className='flex'>
           <nav className='navbar-left flex items-center gap-5 w-2/3 md:w-1/4 lg:w-2/3'>
