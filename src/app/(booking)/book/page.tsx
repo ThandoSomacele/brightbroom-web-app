@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import ServiceCard from '../../components/parts/ServiceCard';
 import servicesData from '@/data/services.json';
 import AddressInput from '../../components/parts/AddressInput';
-import { BookingObject, FormEvent, ServiceObject } from '../../../../types';
+import { BookingObject, ClickEvent, FormEvent, ServiceObject } from '../../../../types';
 
 // Service Default Prices
 const _livingRoomPrice = servicesData['Living Room Areas'].price;
@@ -33,7 +33,7 @@ const Book = () => {
   const formObj: BookingObject = {
     price,
     totalHours,
-    'bedrooms': _bathroomDefaultHours,
+    'bedrooms': _bedroomDefaultHours,
     'bathrooms': _bathroomDefaultHours,
     'laundry & ironing': 'off',
     'oven': 'off',
@@ -61,25 +61,18 @@ const Book = () => {
 
   // Fetch Fn
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: ClickEvent) => {
     event.preventDefault();
-    alert(`Price: ${formData.price}, Hours: ${formData.totalHours}`);
-    // const res = await fetch('/api/createBooking', {
-    //   method: 'POST',
-    //   body: formData,
-    // });
-    // The return value is *not* serialized
-    // You can return Date, Map, Set, etc.
-    // if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    // throw new Error('Failed to fetch data');
-    // }
-    // return res.json();
+    // console.log(formData);
+    const res = fetch('/api/createBooking', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    });
   };
 
   return (
     <div className='container py-10 flex flex-col gap-9 relative'>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className='sticky top-[79px] w-full z-10 bg-palettes-neutral-90 py-2 mb-8'>
           <div className='container flex justify-center md:ml-9 text-lg'>
             {totalHours} Hours • R {price}
@@ -87,7 +80,10 @@ const Book = () => {
         </div>
         <AddressInput />
         <div className='service-selection flex flex-col gap-10 my-8'>{serviceCards}</div>
-        <button type='submit' className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none z-40'>
+        <button
+          type='submit'
+          className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none z-40'
+          onClick={handleSubmit}>
           Book a Cleaner
         </button>
       </form>
