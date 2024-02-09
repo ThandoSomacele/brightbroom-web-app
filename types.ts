@@ -16,12 +16,12 @@ interface ServiceObject {
 interface BookingObject {
   'totalHours': number;
   'price': number;
-  'bedrooms': number;
-  'bathrooms': number;
-  'laundry & ironing': String;
-  'oven': String;
-  'fridge': String;
-  'cabinets': String;
+  'bedrooms'?: number;
+  'bathrooms'?: number;
+  'laundry & ironing'?: String;
+  'oven'?: String;
+  'fridge'?: String;
+  'cabinets'?: String;
 }
 
 export type { FormEvent, ClickEvent, ChangeEvent, SyntheticEvent, ServiceObject, BookingObject };
