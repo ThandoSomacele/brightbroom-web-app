@@ -1,12 +1,14 @@
-// import { cookies } from 'next/headers';
+import { cookies } from 'next/headers';
 // import qs, { stringify } from 'querystring';
 
-export async function GET(request: Request) {
-  const bookingData = request.body;
+export async function POST(request: Request) {
+  const bookingData = await request.json();
+  bookingData.name = 'Thando';
+  bookingData.email = 'tsomacele@gmail.com';
+  bookingData.address = '123 ABC street, Fourways, 2191';
   console.log(bookingData);
-  return new Response('bookingData', {
+  return new Response(JSON.stringify(bookingData), {
     status: 200,
-    headers: { 'Set-Cookie': 'name=thando' },
   });
 }
 
