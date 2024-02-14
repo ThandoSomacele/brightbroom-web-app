@@ -1,3 +1,4 @@
+import React from 'react';
 import Hero from './components/home-sections/Hero';
 import HowItWorks from './components/home-sections/HowItWorks';
 import IntroHome from './components/home-sections/IntroHome';
