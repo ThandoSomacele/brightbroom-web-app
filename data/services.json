@@ -1,0 +1,89 @@
+{
+  "Living Room Areas": {
+    "name": "living room areas",
+    "description": "Dusting of furniture and surfaces. Mopping and vacuuming of floors. Dusting and wiping of skirtings. Dusting and wiping of electronics, and other ornaments. Dusting and wiping of light switches and other fixtures. ",
+    "hours": 0.5,
+    "icon": "common",
+    "price": 33,
+    "isDisabled": true,
+    "input_type": "increment",
+    "defaultRooms": 1
+  },
+
+  "Kitchen": {
+    "name": "kitchen",
+    "description": "Washing dishes. Wiping surfaces, sinks and appliances.Wiping outside of cupboards and fridge. Emptying bins and cleaning bin area.Wiping floors. Mopping floors.",
+    "hours": 1.5,
+    "icon": "kitchen",
+    "price": 92,
+    "isDisabled": true,
+    "input_type": "increment",
+    "defaultRooms": 1
+  },
+
+  "Bedrooms": {
+    "name": "bedrooms",
+    "description": "Making bed. Vacuuming and/or mopping floors. Dusting of furniture and surfaces. Dusting and wiping of skirtings. Folding or hanging of clothes in bedroom.",
+    "hours": 1,
+    "icon": "bedroom",
+    "price": 33,
+    "isDisabled": false,
+    "input_type": "increment",
+    "defaultRooms": 2
+  },
+
+  "Bathrooms": {
+    "name": "bathrooms",
+    "description": "Cleaning of shower, bath and sinks. Wiping of counters and taps. Wiping outside of cupboards and cabinets. Wiping of walls and mirrors. Emptying bins and cleaning bin area. Folding or hanging of clean towels. Mopping floors.",
+    "hours": 1,
+    "icon": "bathroom",
+    "price": 33,
+    "isDisabled": false,
+    "input_type": "increment",
+    "defaultRooms": 1
+  },
+
+  "Laundry & Ironing": {
+    "name": "laundry & ironing",
+    "description": "Use of household laundry machine. Use of household's preffered laundry cleaning products. Collection of clothes allowed to go into the laundry machine. Relevant washing option selected on the laundry machine. Ironing all washed and dryed clothes.",
+    "hours": 2,
+    "icon": "laundry",
+    "price": 66,
+    "isDisabled": false,
+    "input_type": "switch",
+    "defaultRooms": 0
+  },
+
+  "Oven": {
+    "name": "oven",
+    "description": "Washing and drying inside oven and microwave.",
+    "hours": 0.5,
+    "icon": "oven",
+    "price": 33,
+    "isDisabled": false,
+    "input_type": "switch",
+    "defaultRooms": 0
+  },
+
+  "Fridge": {
+    "name": "fridge",
+    "description": "Unpacking, wiping, drying and repacking inside fridge.",
+    "hours": 0.5,
+    "icon": "fridge",
+    "price": 33,
+    "isDisabled": false,
+    "input_type": "switch",
+    "defaultRooms": 0
+  },
+
+  "Cabinets": {
+    "name": "cabinets",
+    "description": "Unpacking, wiping, drying and repacking inside kitchen cabinets.",
+    "hours": 0.5,
+    "icon": "cabinets",
+    "price": 33,
+    "isDisabled": false,
+    "input_type": "switch",
+    "defaultRooms": 0
+  }
+}
