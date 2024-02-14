@@ -3,6 +3,7 @@ import { Open_Sans } from 'next/font/google';
 import Header from './components/layout/Header';
 import '@/app/globals.css';
 import Footer from './components/layout/Footer';
+import React from 'react';
 // import Meta from './components/layout/meta';
 // import Footer from '@/app/components/layout/Footer';
 
