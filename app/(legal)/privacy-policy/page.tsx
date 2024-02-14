@@ -1,4 +1,5 @@
 import markdownStyles from '@/app/components/markdown-styles.module.css';
+import React from 'react';
 
 function PricayPolicy() {
   return (
