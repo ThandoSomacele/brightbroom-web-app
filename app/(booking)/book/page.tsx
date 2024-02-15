@@ -71,23 +71,22 @@ const Book = () => {
   };
 
   return (
-    <div className='container py-10 flex flex-col gap-9 relative'>
+    <div className='container py-10 pt-20 flex flex-col gap-9 relative'>
       <form>
-        <div className='sticky top-[79px] w-full z-10 bg-palettes-neutral-90 py-2 mb-8'>
-          <div className='container flex justify-center md:ml-9 text-lg'>
-            {totalHours} Hours • R {price}
+        <div className='fixed top-[79px] w-full z-10 bg-palettes-neutral-90 py-2 mb-8 right-0'>
+          <div className='flex justify-center md:ml-9'>
+            <p className=' font-semibold text-xl'>{totalHours} Hours • R {price}</p>
           </div>
         </div>
         <AddressInput />
         <div className='service-selection flex flex-col gap-10 my-8'>{serviceCards}</div>
         <button
           type='submit'
-          className='btn btn-primary w-full fixed bottom-0 right-0 rounded-none z-40'
+          className='btn btn-primary w-full text-lg py-4'
           onClick={handleSubmit}>
-          Book a Cleaner
+          Book Your Cleaner Now
         </button>
       </form>
-      {/* <button className='btn btn-secondary fixed bottom-16 right-4'>down</button> */}
     </div>
   );
 };
