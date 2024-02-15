@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   bookingData.name = 'Thando';
   bookingData.email = 'tsomacele@gmail.com';
   bookingData.address = '123 ABC street, Fourways, 2191';
-  console.log(bookingData);
+  // console.log(bookingData);
   return new Response(JSON.stringify(bookingData), {
     status: 200,
   });
