@@ -1,3 +1,4 @@
+import React from 'react';
 import CtaLinks from '../ui/CtaLinks';
 
 const CtaBanner = () => {
@@ -10,7 +11,7 @@ const CtaBanner = () => {
           BrightBroom
         </p>
         <div className='w-full lg:w-4/12'>
-          <CtaLinks />
+          <CtaLinks styleClasses={''} />
         </div>
       </div>
     </section>

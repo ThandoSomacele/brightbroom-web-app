@@ -1,3 +1,4 @@
+import React from 'react';
 import CtaLinks from '../ui/CtaLinks';
 
 function IntroHome() {
@@ -10,7 +11,7 @@ function IntroHome() {
           we&apos;re here to make one aspect of it easier &ndash; keeping your home spotless. With just a few clicks,
           you can book a professional cleaner for a day or even on a weekly basis, without any obligations.
         </p>
-        <CtaLinks />
+        <CtaLinks styleClasses={''} />
       </div>
     </section>
   );

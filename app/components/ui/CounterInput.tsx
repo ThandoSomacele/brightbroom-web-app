@@ -31,7 +31,7 @@ function CounterInput({
 
     if (totalHours < 10) {
       setCount(count + 1);
-      setPrice((price += service.price));
+      setPrice((price += service.cost));
       setTotalHours((totalHours += service.hours));
 
       // formData change
@@ -49,7 +49,7 @@ function CounterInput({
 
     if (count > 1) {
       setCount(count - 1);
-      setPrice((price -= service.price));
+      setPrice((price -= service.cost));
       setTotalHours((totalHours -= service.hours));
 
       // formData change

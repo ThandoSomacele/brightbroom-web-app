@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import CtaLinks from '../ui/CtaLinks';
 import Features from '../ui/Features';
@@ -11,7 +12,7 @@ const OurFeatures = () => {
             Our Features
             <br />& Services
           </h2>
-          <CtaLinks />
+          <CtaLinks styleClasses={''} />
           <Image
             src={'/assets/our-features.webp '}
             alt={'Clean bedroom with open window'}

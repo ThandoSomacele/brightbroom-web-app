@@ -35,7 +35,7 @@ function ServiceCard({
     );
   };
 
-  let inputBtn;
+  let inputBtn: string | number | boolean | React.JSX.Element | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined;
   if (service.input_type === 'increment')
     inputBtn = (
       <CounterInput

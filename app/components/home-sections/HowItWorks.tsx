@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import CtaLinks from '../ui/CtaLinks';
 
@@ -40,7 +41,7 @@ const HowItWorks = () => {
               </li>
             ))}
           </ul>
-          <CtaLinks />
+          <CtaLinks styleClasses={''} />
         </div>
       </div>
     </section>
