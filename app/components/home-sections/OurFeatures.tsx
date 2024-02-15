@@ -19,6 +19,7 @@ const OurFeatures = () => {
             width={404}
             height={277}
             className='w-full md:h-80 lg:h-full object-cover rounded-2xl'
+            priority
           />
         </div>
         <div className='how-it-work-right w-full lg:w-[53%]'>
