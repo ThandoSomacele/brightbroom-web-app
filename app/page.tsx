@@ -1,9 +1,9 @@
 import React from 'react';
-import Hero from './components/home-sections/Hero';
-import HowItWorks from './components/home-sections/HowItWorks';
-import IntroHome from './components/home-sections/IntroHome';
-import OurFeatures from './components/home-sections/OurFeatures';
-import CtaBanner from './components/home-sections/CtaBanner';
+import Hero from './ui/home-sections/Hero';
+import HowItWorks from './ui/home-sections/HowItWorks';
+import IntroHome from './ui/home-sections/IntroHome';
+import OurFeatures from './ui/home-sections/OurFeatures';
+import CtaBanner from './ui/home-sections/CtaBanner';
 
 export default function Home() {
   return (

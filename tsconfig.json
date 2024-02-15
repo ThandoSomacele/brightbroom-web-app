@@ -19,8 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": ["./*","./app/*"]
+    },
   },
   "include": [
     "next-env.d.ts",
@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/(marketing)/privacy-policy/page.mdx",
-    "app/api/createBooking/route.js"
+    "app/api/createBooking/route.js",
+    "app/lib/placeholder-data.js",
+    "scripts/seed.js"
   ],
   "exclude": ["node_modules"]
 }

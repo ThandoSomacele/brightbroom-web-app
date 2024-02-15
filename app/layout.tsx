@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
-import Header from './components/layout/Header';
-import '@/app/globals.css';
-import Footer from './components/layout/Footer';
+import Header from './ui/layout/Header';
+import '@/app/ui/globals.css';
+import Footer from './ui/layout/Footer';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   //   address: false,
   //   telephone: false,
   // },
-  metadataBase: new URL('https://brightbroom.com'),
+  metadataBase: new URL('http://localhost:3000/'),
   alternates: {
     canonical: '/',
     languages: {
