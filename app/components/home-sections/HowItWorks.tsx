@@ -20,6 +20,7 @@ const HowItWorks = () => {
             width={562}
             height={509}
             className='w-full md:h-80 lg:h-full object-cover rounded-2xl'
+            priority
           />
         </div>
         <div className='how-it-work-right w-full lg:w-[45%] flex flex-col gap-y-7 pl-5 md:pl-10 lg:pl-0'>
