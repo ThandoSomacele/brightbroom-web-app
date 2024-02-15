@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import CtaLinks from '../ui/CtaLinks';
 
@@ -13,7 +14,7 @@ function Hero() {
             Say goodbye to the hassle of finding and booking a cleaner &ndash; we&apos;ve got you covered. Experience
             the joy of a spotless home or office, without the stress.
           </p>
-          <CtaLinks />
+          <CtaLinks styleClasses={''} />
         </div>
         <div className='hero-right w-full lg:w-[45%]'>
           <Image

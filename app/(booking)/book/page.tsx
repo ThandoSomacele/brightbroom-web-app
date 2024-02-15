@@ -1,15 +1,15 @@
 'use client';
 import React, { useState, useRef } from 'react';
 import ServiceCard from '../../components/ui/ServiceCard';
-import servicesData from '@/data/services.json';
+import servicesData from '../../data/services.json';
 import AddressInput from '../../components/ui/AddressInput';
 import { BookingObject, ClickEvent, FormEvent, ServiceObject } from '../../lib/definitions';
 
 // Service Default Prices
-const _livingRoomPrice = servicesData['Living Room Areas'].price;
-const _kitchenPrice = servicesData['Kitchen'].price;
-const _bedroomDefaultPrice = servicesData['Bedrooms'].price * Number(servicesData['Bedrooms'].defaultRooms);
-const _bathroomDefaultPrice = servicesData['Bathrooms'].price * Number(servicesData['Bathrooms'].defaultRooms);
+const _livingRoomPrice = servicesData['Living Room Areas'].cost;
+const _kitchenPrice = servicesData['Kitchen'].cost;
+const _bedroomDefaultPrice = servicesData['Bedrooms'].cost * Number(servicesData['Bedrooms'].defaultRooms);
+const _bathroomDefaultPrice = servicesData['Bathrooms'].cost * Number(servicesData['Bathrooms'].defaultRooms);
 
 // Service Default Hours
 const _livingRoomHours = servicesData['Living Room Areas'].hours;

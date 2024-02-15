@@ -36,7 +36,7 @@ function ToggleSwitch({
     const { name, checked } = event.target;
 
     if (!isChecked) {
-      setPrice((price += service.price));
+      setPrice((price += service.cost));
       setTotalHours((totalHours += service.hours));
       setIsChecked(checked);
       setInputValue('on');
@@ -47,7 +47,7 @@ function ToggleSwitch({
     }
 
     if (isChecked) {
-      setPrice((price -= service.price));
+      setPrice((price -= service.cost));
       setTotalHours((totalHours -= service.hours));
       setIsChecked(checked);
       setInputValue('off');

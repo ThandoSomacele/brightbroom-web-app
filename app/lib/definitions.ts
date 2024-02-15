@@ -3,17 +3,18 @@ type ClickEvent = React.MouseEvent<HTMLButtonElement>;
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 type SyntheticEvent = React.SyntheticEvent<EventTarget>;
 
-interface ServiceObject {
+type ServiceObject = {
   name: string;
   description: string;
   hours: number;
   icon: string;
-  price: number;
+  cost: number;
   input_type: string;
   isDisabled: Boolean;
   defaultRooms: number;
 }
-interface BookingObject {
+
+type BookingObject = {
   'totalHours': number;
   'price': number;
   'bedrooms'?: number;

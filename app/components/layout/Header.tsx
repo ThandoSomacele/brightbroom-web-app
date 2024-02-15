@@ -1,11 +1,12 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CtaLinks from '@/app/components/ui/CtaLinks';
-import LinkList from '@/app/lib/LinkList';
+import CtaLinks from '../../components/ui/CtaLinks';
+import LinkList from '../../lib/LinkList';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { isLoggedIn } from '@/app/lib/isLoggedIn';
+import { isLoggedIn } from '../../lib/isLoggedIn';
 
 // Head Nav Links
 const navLinks = [
