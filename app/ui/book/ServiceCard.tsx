@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react';
 import CounterInput from './CounterInput';
 import ToggleSwitch from './ToggleSwitch';
-import { ServiceObject, BookingObject } from '../../lib/definitions';
+import { ServiceObject, BookingObject } from '@/app/lib/definitions';
 
 function ServiceCard({
   service,
@@ -35,7 +35,15 @@ function ServiceCard({
     );
   };
 
-  let inputBtn: string | number | boolean | React.JSX.Element | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined;
+  let inputBtn:
+    | string
+    | number
+    | boolean
+    | React.JSX.Element
+    | Iterable<React.ReactNode>
+    | React.PromiseLikeOfReactNode
+    | null
+    | undefined;
   if (service.input_type === 'increment')
     inputBtn = (
       <CounterInput

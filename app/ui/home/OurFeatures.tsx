@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import CtaLinks from '../parts/CtaLinks';
-import Features from '../parts/Features';
+import CtaLinks from '../misc/CtaLinks';
+import Features from './Features';
 
 const OurFeatures = () => {
   return (

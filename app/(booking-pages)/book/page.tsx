@@ -1,9 +1,9 @@
 'use client';
 import React, { useState, useRef } from 'react';
-import ServiceCard from '../../ui/parts/ServiceCard';
-import servicesData from '../../lib/services.json';
-import AddressInput from '../../ui/parts/AddressInput';
-import { BookingObject, ClickEvent, FormEvent, ServiceObject } from '../../lib/definitions';
+import ServiceCard from '@/app/ui/book/ServiceCard';
+import servicesData from '@/app/lib/services.json';
+import AddressInput from '@/app/ui/book/AddressInput';
+import { BookingObject, ClickEvent, FormEvent, ServiceObject } from '@/app/lib/definitions';
 
 // Service Default Prices
 const _livingRoomPrice = servicesData['Living Room Areas'].cost;

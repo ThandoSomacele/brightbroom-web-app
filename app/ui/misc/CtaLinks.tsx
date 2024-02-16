@@ -1,5 +1,5 @@
 'use client';
-import { isLoggedIn } from '../../lib/isLoggedIn';
+import { isLoggedIn } from '@/app/lib/isLoggedIn';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

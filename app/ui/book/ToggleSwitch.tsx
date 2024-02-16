@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
-import { ServiceObject, ChangeEvent, BookingObject } from '../../lib/definitions';
+import { ServiceObject, ChangeEvent, BookingObject } from '@/app/lib/definitions';
 
 function ToggleSwitch({
   service,
