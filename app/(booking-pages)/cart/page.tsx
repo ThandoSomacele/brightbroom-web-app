@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import BookedItems from '../../parts/BookedItems';
+import BookedItems from '@/app/ui/cart-checkout/BookedItems';
 
 function page() {
   return (
