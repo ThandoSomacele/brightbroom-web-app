@@ -1,5 +1,5 @@
 import React from 'react';
-import markdownStyles from './../../ui/parts/markdown-styles.module.css';
+import markdownStyles from './@/app/ui/parts/markdown-styles.module.css';
 
 function TermsOfUse() {
   // console.log(markdownStyles.checksum);

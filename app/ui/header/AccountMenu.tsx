@@ -2,7 +2,7 @@ import React from 'react';
 
 function AccountMenu({ display }: { display: string }) {
   return (
-    <ul className={`space-y-1 absolute right-5 top-13 z-50 bg-light-surface w-52 ${display}`}>
+    <ul className={`space-y-1 fixed right-5 top-13 z-50 bg-light-surface w-52 ${display}`}>
       <li>
         <a
           href='/dashboard'

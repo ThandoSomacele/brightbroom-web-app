@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import LinkList from '../../lib/LinkList';
+import LinkList from '@/app/lib/LinkList';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 

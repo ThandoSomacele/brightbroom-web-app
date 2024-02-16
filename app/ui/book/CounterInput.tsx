@@ -1,5 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
-import { ServiceObject, ClickEvent, BookingObject, ChangeEvent } from '../../lib/definitions';
+import { ServiceObject, ClickEvent, BookingObject, ChangeEvent } from '@/app/lib/definitions';
 
 function CounterInput({
   service,

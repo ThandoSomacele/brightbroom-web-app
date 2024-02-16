@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CtaLinks from '../../ui/parts/CtaLinks';
-import LinkList from '../../lib/LinkList';
+import CtaLinks from '../misc/CtaLinks';
+import LinkList from '@/app/lib/LinkList';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { isLoggedIn } from '../../lib/isLoggedIn';
-import AccountMenu from '../parts/AccountMenu';
+import { isLoggedIn } from '@/app/lib/isLoggedIn';
+import AccountMenu from '../header/AccountMenu';
 
 // Head Nav Links
 const navLinks = [
@@ -41,6 +41,7 @@ const Header = () => {
       <div
         className={clsx('navbar sticky top-[-1px] bg-light-background flex items-center h-20 z-40 shadow-md', {
           'bg-light-onPrimaryFixed text-light-onPrimary': pathname !== '/',
+          'hidden': pathname.includes('/dashboard'),
         })}>
         <div className='container'>
           <div className='flex'>
@@ -71,7 +72,7 @@ const Header = () => {
                   alt='user profile'
                   width={40}
                   height={40}
-                  className='object-cover rounded-full md:w-12 md:h-12'
+                  className='object-cover rounded-full md:w-12 md:h-12 cursor-pointer'
                   onClick={toggleClass}
                 />
               )}

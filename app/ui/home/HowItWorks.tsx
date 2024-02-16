@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import CtaLinks from '@/app/ui/parts/CtaLinks';
+import CtaLinks from '@/app/ui/misc/CtaLinks';
 
 const HowItWorks = () => {
   const stepsList = [
@@ -30,11 +30,10 @@ const HowItWorks = () => {
               <li className='step flex gap-6' key={step.order}>
                 <Image
                   src={`/steps/step-${step.order}.webp`}
-                  
                   width={50}
                   height={50}
                   alt={`Step ${step.order} icon`}
-                  style={{ width: "auto", height: "auto", objectFit: 'contain' }}
+                  style={{ width: 'auto', height: 'auto', objectFit: 'contain' }}
                 />
                 <div className='text flex flex-col'>
                   <h3 className='text-lg font-bold text-light-onTertiary'>Step {step.order}</h3>
