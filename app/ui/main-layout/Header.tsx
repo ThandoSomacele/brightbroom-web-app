@@ -1,11 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CtaLinks from '../misc/CtaLinks';
-import LinkList from '@/app/lib/LinkList';
 import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
+import { usePathname, useParams, useRouter } from 'next/navigation';
 import { isLoggedIn } from '@/app/lib/isLoggedIn';
 import AccountMenu from '../header/AccountMenu';
 
@@ -30,7 +29,18 @@ const Header = () => {
   const [isShowing, setShow] = useState(false);
   const pathname = usePathname();
 
-  const navList = LinkList(navLinks);
+  const navList = navLinks.map((linkItem, i) => (
+    <li key={i}>
+      <Link
+        href={linkItem.href}
+        className={clsx('text-black', {
+          'text-white': pathname !== '/',
+        })}
+      >
+        {linkItem.text}
+      </Link>
+    </li>
+  ));
 
   const toggleClass = () => {
     setShow(!isShowing);
@@ -39,40 +49,46 @@ const Header = () => {
   return (
     <>
       <div
-        className={clsx('navbar sticky top-[-1px] bg-light-background flex items-center h-20 z-40 shadow-md', {
-          'bg-light-onPrimaryFixed text-light-onPrimary': pathname !== '/',
-          'hidden': pathname.includes('/dashboard'),
-        })}>
-        <div className='container'>
-          <div className='flex'>
-            <nav className='navbar-left flex items-center gap-5 w-2/3 md:w-1/4 lg:w-2/3'>
+        className={clsx(
+          'navbar sticky top-[-1px] z-40 flex h-20 items-center bg-light-background shadow-md',
+          {
+            'bg-light-onPrimaryFixed text-light-onPrimary': pathname !== '/',
+            hidden: pathname.includes('/dashboard'),
+          },
+        )}
+      >
+        <div className="container">
+          <div className="flex">
+            <nav className="navbar-left flex w-2/3 items-center gap-5 md:w-1/4 lg:w-2/3">
               <Link href={'/'}>
                 <Image
-                  className='logo'
+                  className="logo"
                   src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
-                  alt='logo'
+                  alt="logo"
                   width={181}
                   height={41}
                   priority
                 />
               </Link>
-              <ul className='nav-links hidden lg:flex items-center gap-4 text__body-large'>{navList}</ul>
+              <ul className="nav-links text__body-large hidden items-center gap-4 lg:flex">
+                {navList}
+              </ul>
             </nav>
-            <div className='navbar-right flex gap-3 justify-end items-center w-1/4 md:w-2/3 lg:w-1/3'>
-              <CtaLinks styleClasses='hidden md:flex' />
+            <div className="navbar-right flex w-1/4 items-center justify-end gap-3 md:w-2/3 lg:w-1/3">
+              <CtaLinks styleClasses="hidden md:flex" />
 
-              <div className='hamburger-menu lg:hidden flex flex-col gap-1 w-6'>
-                <div className='line1 h-0 border-2 border-light-onPrimaryContainer w-full'></div>
-                <div className='line2 h-0 border-2 border-light-onPrimaryContainer w-full'></div>
-                <div className='line3 h-0 border-2 border-light-onPrimaryContainer w-full'></div>
+              <div className="hamburger-menu flex w-6 flex-col gap-1 lg:hidden">
+                <div className="line1 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
+                <div className="line2 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
+                <div className="line3 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
               </div>
               {isLoggedIn && (
                 <Image
                   src={'/cleaners/cleaner.jpg'}
-                  alt='user profile'
+                  alt="user profile"
                   width={40}
                   height={40}
-                  className='object-cover rounded-full md:w-12 md:h-12 cursor-pointer'
+                  className="cursor-pointer rounded-full object-cover md:h-12 md:w-12"
                   onClick={toggleClass}
                 />
               )}
