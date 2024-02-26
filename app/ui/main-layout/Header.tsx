@@ -7,43 +7,16 @@ import clsx from 'clsx';
 import { usePathname, useParams, useRouter } from 'next/navigation';
 import { isLoggedIn } from '@/app/lib/isLoggedIn';
 import AccountMenu from '../header/AccountMenu';
-
-// Head Nav Links
-const navLinks = [
-  {
-    text: 'Features',
-    href: '/#features',
-  },
-  {
-    text: 'How It Works',
-    href: '/#how-it-works',
-  },
-  {
-    text: 'Become A Cleaner',
-    href: '/become-a-cleaner',
-  },
-];
+import { Link as ScrollLink, animateScroll } from 'react-scroll';
 
 // Head Component
 const Header = () => {
-  const [isShowing, setShow] = useState(false);
+  const [display, setDisply] = useState('hidden');
   const pathname = usePathname();
 
-  const navList = navLinks.map((linkItem, i) => (
-    <li key={i}>
-      <Link
-        href={linkItem.href}
-        className={clsx('text-black', {
-          'text-white': pathname !== '/',
-        })}
-      >
-        {linkItem.text}
-      </Link>
-    </li>
-  ));
-
   const toggleClass = () => {
-    setShow(!isShowing);
+    if (display === 'block') setDisply('hidden');
+    else setDisply('block');
   };
 
   return (
@@ -60,18 +33,85 @@ const Header = () => {
         <div className="container">
           <div className="flex">
             <nav className="navbar-left flex w-2/3 items-center gap-5 md:w-1/4 lg:w-2/3">
-              <Link href={'/'}>
-                <Image
-                  className="logo"
-                  src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
-                  alt="logo"
-                  width={181}
-                  height={41}
-                  priority
-                />
-              </Link>
+              {pathname === '/' ? (
+                <ScrollLink
+                  className={`cursor-pointer`}
+                  activeClass="text-red-800"
+                  to="hero"
+                  spy={true}
+                  smooth={true}
+                  offset={-78}
+                  duration={500}
+                >
+                  <Image
+                    className="logo"
+                    src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
+                    alt="logo"
+                    width={181}
+                    height={41}
+                    priority
+                  />
+                </ScrollLink>
+              ) : (
+                <Link href={'/'}>
+                  <Image
+                    className="logo"
+                    src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
+                    alt="logo"
+                    width={181}
+                    height={41}
+                    priority
+                  />
+                </Link>
+              )}
               <ul className="nav-links text__body-large hidden items-center gap-4 lg:flex">
-                {navList}
+                <li key={'how'}>
+                  {' '}
+                  {pathname === '/' ? (
+                    <ScrollLink
+                      className="cursor-pointer transition-all"
+                      activeClass="border-light-primaryFixedDim  border-b-2"
+                      to="how-it-works"
+                      spy={true}
+                      smooth={true}
+                      offset={-78}
+                      duration={500}
+                    >
+                      How It Works
+                    </ScrollLink>
+                  ) : (
+                    <Link href={'/#how-it-works'}>How It Works</Link>
+                  )}
+                </li>
+                <li key={'features'}>
+                  {pathname === '/' ? (
+                    <ScrollLink
+                      className="cursor-pointer transition-all"
+                      activeClass="border-light-primaryFixedDim  border-b-2"
+                      to="features"
+                      spy={true}
+                      smooth={true}
+                      offset={-78}
+                      duration={500}
+                    >
+                      Features
+                    </ScrollLink>
+                  ) : (
+                    <Link href={'/#features'}>Features</Link>
+                  )}
+                </li>
+
+                <li key={'become'}>
+                  <Link
+                    className={clsx('transition-all', {
+                      'border-b-2  border-light-primaryFixedDim':
+                        pathname === '/become-a-cleaner',
+                    })}
+                    href={'/become-a-cleaner'}
+                  >
+                    Become A Cleaner
+                  </Link>
+                </li>
               </ul>
             </nav>
             <div className="navbar-right flex w-1/4 items-center justify-end gap-3 md:w-2/3 lg:w-1/3">
@@ -96,7 +136,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {isLoggedIn && <AccountMenu display={isShowing ? 'block' : 'hidden'} />}
+      {isLoggedIn && <AccountMenu display={display} setDisplay={setDisply} />}
     </>
   );
 };
