@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   //   address: false,
   //   telephone: false,
   // },
-  metadataBase: new URL('htts://brightbroom.vercel.app/'),
+  metadataBase: new URL('http://brightbroom.vercel.app/'),
   alternates: {
     canonical: '/',
     languages: {
