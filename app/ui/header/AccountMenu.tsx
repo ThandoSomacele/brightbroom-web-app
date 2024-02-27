@@ -1,21 +1,17 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
 function AccountMenu({
-  display,
-  setDisplay,
+  displayAccMenu,
+  setDisplayAccMenu,
 }: {
-  display: string;
-  setDisplay: Dispatch<SetStateAction<string>>;
+  displayAccMenu: string;
+  setDisplayAccMenu: Dispatch<SetStateAction<string>>;
 }) {
-  const hideMenu = () => setDisplay('hidden');
+  const hideMenu = () => setDisplayAccMenu('hidden');
   return (
     <>
-      <div
-        className={`fixed right-0 top-0 z-50 h-full w-full space-y-1 bg-transparent  ${display} `}
-        onClick={hideMenu}
-      ></div>
       <ul
-        className={`fixed right-5 top-20 z-50 w-52 space-y-1 bg-light-surface ${display} transition-all duration-1000 ease-in-out`}
+        className={`fixed right-5 top-20 z-50 w-52 space-y-1 bg-light-surface ${displayAccMenu} transition-all duration-1000 ease-in-out`}
       >
         <li>
           <a
@@ -225,6 +221,10 @@ function AccountMenu({
           </details>
         </li>
       </ul>
+      <div
+        className={`fixed right-0 top-0 z-40 h-full w-full space-y-1 bg-transparent  ${displayAccMenu} `}
+        onClick={hideMenu}
+      ></div>
     </>
   );
 }

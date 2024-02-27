@@ -11,12 +11,17 @@ import { Link as ScrollLink, animateScroll } from 'react-scroll';
 
 // Head Component
 const Header = () => {
-  const [display, setDisply] = useState('hidden');
+  const [displayAccMenu, setDisplayAccMenu] = useState('hidden');
+  const [displayMobileNavMenu, setDisplyMobileNavMenu] = useState('hidden');
   const pathname = usePathname();
 
-  const toggleClass = () => {
-    if (display === 'block') setDisply('hidden');
-    else setDisply('block');
+  const toggleAccMenu = () => {
+    if (displayAccMenu === 'block') setDisplayAccMenu('hidden');
+    else setDisplayAccMenu('block');
+  };
+  const toggleMobileNavMenu = () => {
+    if (displayMobileNavMenu === 'flex') setDisplyMobileNavMenu('hidden');
+    else setDisplyMobileNavMenu('flex');
   };
 
   return (
@@ -25,7 +30,8 @@ const Header = () => {
         className={clsx(
           'navbar sticky top-[-1px] z-40 flex h-20 items-center bg-light-background shadow-md',
           {
-            'bg-light-onPrimaryFixed text-light-onPrimary': pathname !== '/',
+            'bg-light-onPrimaryFixed text-black lg:text-light-onPrimary':
+              pathname !== '/',
             hidden: pathname.includes('/dashboard'),
           },
         )}
@@ -44,7 +50,7 @@ const Header = () => {
                   duration={500}
                 >
                   <Image
-                    className="logo"
+                    className={`logo lg:w-[${181 * 1.5}px] w-40`}
                     src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
                     alt="logo"
                     width={181}
@@ -55,7 +61,7 @@ const Header = () => {
               ) : (
                 <Link href={'/'}>
                   <Image
-                    className="logo"
+                    className={`logo lg:w-[${181 * 1.5}px] w-40`}
                     src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
                     alt="logo"
                     width={181}
@@ -64,52 +70,98 @@ const Header = () => {
                   />
                 </Link>
               )}
-              <ul className="nav-links text__body-large hidden items-center gap-4 lg:flex">
-                <li key={'how'}>
-                  {' '}
+              <ul
+                className={`nav-links text__body-large fixed right-0 top-[78px] w-full flex-col items-start gap-3 bg-gray-50 p-5 font-medium lg:static lg:flex lg:flex-row lg:items-center lg:gap-4 lg:bg-transparent lg:p-0 ${displayMobileNavMenu} z-50`}
+              >
+                <li
+                  key={'how'}
+                  className="w-full lg:w-auto"
+                  onClick={toggleMobileNavMenu}
+                >
                   {pathname === '/' ? (
                     <ScrollLink
-                      className="cursor-pointer transition-all"
-                      activeClass="border-light-primaryFixedDim  border-b-2"
+                      className="m-0 block w-full cursor-pointer rounded-sm p-2 px-4 transition-all ease-in-out lg:rounded-none lg:p-0"
+                      activeClass="lg:border-light-primaryFixedDim lg:border-b-2 bg-palettes-primary-95 lg:bg-transparent rounded-none"
                       to="how-it-works"
                       spy={true}
                       smooth={true}
                       offset={-78}
                       duration={500}
+                      onClick={toggleMobileNavMenu}
                     >
                       How It Works
                     </ScrollLink>
                   ) : (
-                    <Link href={'/#how-it-works'}>How It Works</Link>
+                    <Link
+                      className={
+                        'm-0 block w-full cursor-pointer rounded-sm p-2 px-4 transition-all ease-in-out lg:rounded-none lg:p-0'
+                      }
+                      href={'/#how-it-works'}
+                    >
+                      How It Works
+                    </Link>
                   )}
                 </li>
-                <li key={'features'}>
+                <li
+                  key={'features'}
+                  className="w-full lg:w-auto"
+                  onClick={toggleMobileNavMenu}
+                >
                   {pathname === '/' ? (
                     <ScrollLink
-                      className="cursor-pointer transition-all"
-                      activeClass="border-light-primaryFixedDim  border-b-2"
+                      className="m-0 block w-full cursor-pointer rounded-sm p-2 px-4 transition-all ease-in-out lg:rounded-none lg:p-0"
+                      activeClass="lg:border-light-primaryFixedDim lg:border-b-2 bg-palettes-primary-95 lg:bg-transparent"
                       to="features"
                       spy={true}
                       smooth={true}
                       offset={-78}
                       duration={500}
+                      onClick={toggleMobileNavMenu}
                     >
                       Features
                     </ScrollLink>
                   ) : (
-                    <Link href={'/#features'}>Features</Link>
+                    <Link
+                      className={
+                        'm-0 block w-full cursor-pointer rounded-sm p-2 px-4 transition-all ease-in-out lg:rounded-none lg:p-0'
+                      }
+                      href={'/#features'}
+                    >
+                      Features
+                    </Link>
                   )}
                 </li>
 
-                <li key={'become'}>
+                <li
+                  key={'become'}
+                  className="w-full lg:w-auto"
+                  onClick={toggleMobileNavMenu}
+                >
                   <Link
-                    className={clsx('transition-all', {
-                      'border-b-2  border-light-primaryFixedDim':
-                        pathname === '/become-a-cleaner',
-                    })}
+                    className={clsx(
+                      'm-0 block w-full cursor-pointer rounded-sm p-2 px-4 transition-all ease-in-out lg:rounded-none lg:p-0',
+                      {
+                        'bg-palettes-primary-95 lg:border-b-2 lg:border-light-primaryFixedDim lg:bg-transparent':
+                          pathname === '/become-a-cleaner',
+                      },
+                    )}
                     href={'/become-a-cleaner'}
                   >
                     Become A Cleaner
+                  </Link>
+                </li>
+                <li
+                  key={'book'}
+                  className="w-full md:hidden lg:w-auto "
+                  onClick={toggleMobileNavMenu}
+                >
+                  <Link
+                    className={
+                      'block w-full rounded-2xl bg-light-secondary p-2 text-center text-white'
+                    }
+                    href={'/book'}
+                  >
+                    Book A Cleaner
                   </Link>
                 </li>
               </ul>
@@ -117,11 +169,6 @@ const Header = () => {
             <div className="navbar-right flex w-1/4 items-center justify-end gap-3 md:w-2/3 lg:w-1/3">
               <CtaLinks styleClasses="hidden md:flex" />
 
-              <div className="hamburger-menu flex w-6 flex-col gap-1 lg:hidden">
-                <div className="line1 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
-                <div className="line2 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
-                <div className="line3 h-0 w-full border-2 border-light-onPrimaryContainer"></div>
-              </div>
               {isLoggedIn && (
                 <Image
                   src={'/cleaners/cleaner.jpg'}
@@ -129,14 +176,47 @@ const Header = () => {
                   width={40}
                   height={40}
                   className="cursor-pointer rounded-full object-cover md:h-12 md:w-12"
-                  onClick={toggleClass}
+                  onClick={toggleAccMenu}
                 />
               )}
+              <>
+                <button
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                  onClick={toggleMobileNavMenu}
+                >
+                  <span className="sr-only">Open main menu</span>
+                  <svg
+                    className={'h-5 w-5'}
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 17 14"
+                  >
+                    <path
+                      stroke={pathname !== '/' ? 'white' : 'currentColor'}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M1 1h15M1 7h15M1 13h15"
+                    />
+                  </svg>
+                </button>
+                <div
+                  className={`fixed right-0 top-0 z-40 h-full w-full space-y-1 bg-transparent  ${displayMobileNavMenu} `}
+                  onClick={toggleMobileNavMenu}
+                ></div>
+              </>
             </div>
           </div>
         </div>
       </div>
-      {isLoggedIn && <AccountMenu display={display} setDisplay={setDisply} />}
+
+      {isLoggedIn && (
+        <AccountMenu
+          displayAccMenu={displayAccMenu}
+          setDisplayAccMenu={setDisplayAccMenu}
+        />
+      )}
     </>
   );
 };
