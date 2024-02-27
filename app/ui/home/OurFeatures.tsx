@@ -14,7 +14,7 @@ const OurFeatures = () => {
           </h2>
           <CtaLinks styleClasses={''} />
           <Image
-            src={'/assets/our-features.webp '}
+            src={'/assets/our-features.webp'}
             alt={'Clean bedroom with open window'}
             width={404}
             height={277}
