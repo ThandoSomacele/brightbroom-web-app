@@ -26,9 +26,14 @@ function ServiceCard({
   const ClockIcon = function () {
     return (
       <React.Fragment>
-        <Image src={'/icons/clock.svg'} width={24} height={24} alt='clock icon' />
+        <Image
+          src={'/icons/clock.svg'}
+          width={24}
+          height={24}
+          alt="clock icon"
+        />
 
-        <p className='text-xs font-medium'>
+        <p className="text-xs font-medium">
           {`approx. ${service.hours} ${Number(service.hours) > 1 ? 'hours' : 'hours'}`}
         </p>
       </React.Fragment>
@@ -74,15 +79,16 @@ function ServiceCard({
     );
 
   return (
-    <div className='rounded-xl bg-white p-4 ring ring-light-primary sm:p-6 lg:p-8'>
-      <div className='flex flex-col md:flex-row items-center sm:gap-8'>
+    <div className="rounded-xl bg-white p-4 ring ring-light-primary sm:p-6 lg:p-8">
+      <div className="flex flex-col items-center sm:gap-8 md:flex-row">
         <div
-          className='service-icon sm:grid sm:h-20 sm:w-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-light-primary w-full'
-          aria-hidden='true'>
-          <div className='flex items-center gap-1'>
+          className="service-icon w-full sm:grid sm:h-20 sm:w-20 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-2 sm:border-light-primary"
+          aria-hidden="true"
+        >
+          <div className="flex items-center gap-1">
             <Image
               src={`/icons/${service.icon}.svg`}
-              className='object-contain'
+              className="object-contain"
               width={'45'}
               height={'45'}
               alt={`${service.name} icon`}
@@ -90,21 +96,23 @@ function ServiceCard({
           </div>
         </div>
 
-        <div className='service-description w-full md:w-4/6 pt-2 md:pt-0'>
-          <h3 className='text-lg font-medium sm:text-xl'>{service.name}</h3>
+        <div className="service-description w-full pt-2 md:w-4/6 md:pt-0">
+          <h3 className="text-lg font-medium sm:text-xl">
+            {service.name.toUpperCase()}
+          </h3>
 
-          <p className='mt-1.5 text-sm text-gray-700'>{service.description}</p>
+          <p className="mt-1.5 text-sm text-gray-700">{service.description}</p>
 
-          <div className='mt-4 sm:flex sm:items-center sm:gap-2'>
-            <div className='hidden md:flex items-center gap-1 text-gray-500'>
+          <div className="mt-4 sm:flex sm:items-center sm:gap-2">
+            <div className="hidden items-center gap-1 text-gray-500 md:flex">
               <ClockIcon />
             </div>
           </div>
         </div>
 
-        <div className='service-controller flex justify-between md:justify-end w-full md:w-1/6'>
-          <div className='mt-4 sm:flex sm:items-center sm:gap-2 md:hidden'>
-            <div className='flex items-center gap-1 text-gray-500'>
+        <div className="service-controller flex w-full justify-between md:w-1/6 md:justify-end">
+          <div className="mt-4 sm:flex sm:items-center sm:gap-2 md:hidden">
+            <div className="flex items-center gap-1 text-gray-500">
               <ClockIcon />
             </div>
           </div>
