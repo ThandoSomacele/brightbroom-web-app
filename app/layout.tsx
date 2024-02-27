@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   //   address: false,
   //   telephone: false,
   // },
-  metadataBase: new URL('http://localhost:3000/'),
+  metadataBase: new URL('htts://brightbroom.vercel.app/'),
   alternates: {
     canonical: '/',
     languages: {
@@ -30,13 +30,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    images: '/opengraph-image.png',
+    images: '/opengraph-image.jpg',
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={openSans.className}>
         <Header />
         {children}
