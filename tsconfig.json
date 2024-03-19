@@ -19,8 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*","./app/*"]
-    },
+      "@/*": ["./*", "./app/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -30,7 +30,14 @@
     "app/(marketing)/privacy-policy/page.mdx",
     "app/api/createBooking/route.js",
     "app/lib/placeholder-data.js",
-    "scripts/seed.js"
+    "scripts/seed.js",
+    ".next/types/app/(user-pages)/dashboard/page.tsx",
+    ".next/types/app/(user-pages)/dashboard/layout.tsx",
+    ".next/types/app/(user-pages)/dashboard/invoices/page.tsx",
+    ".next/types/app/(user-pages)/dashboard/customers/page.tsx",
+    ".next/types/app/(user-pages)/dashboard/(overview)/page.tsx",
+    ".next/types/app/page.tsx",
+    ".next/types/app/layout.tsx"
   ],
   "exclude": ["node_modules"]
 }
