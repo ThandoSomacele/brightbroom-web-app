@@ -1,5 +1,10 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
-import { ServiceObject, ClickEvent, BookingObject, ChangeEvent } from '@/app/lib/definitions';
+import {
+  ServiceObject,
+  ClickEvent,
+  BookingObject,
+  ChangeEvent,
+} from '@/app/lib/definitions';
 
 function CounterInput({
   service,
@@ -35,8 +40,13 @@ function CounterInput({
       setTotalHours((totalHours += service.hours));
 
       // formData change
-      setFormData(prevFormData => ({ ...prevFormData, price, totalHours, [service.name]: count }));
-      // console.log(formData);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        price,
+        totalHours,
+        [service.name]: count,
+      }));
+      console.log(formData);
     }
   };
 
@@ -53,8 +63,13 @@ function CounterInput({
       setTotalHours((totalHours -= service.hours));
 
       // formData change
-      setFormData(prevFormData => ({ ...prevFormData, price, totalHours, [service.name]: count }));
-      // console.log(formData);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        price,
+        totalHours,
+        [service.name]: count,
+      }));
+      console.log(formData);
     }
   };
 
@@ -69,42 +84,60 @@ function CounterInput({
 
   // const minusCounter;
   return (
-    <div className='custom-number-input w-32'>
-      <label htmlFor={service.name} className='hidden w-full text-light-onPrimaryFixed text-sm font-semibold'>
+    <div className="custom-number-input w-32">
+      <label
+        htmlFor={service.name}
+        className="hidden w-full text-sm font-semibold text-light-onPrimaryFixed"
+      >
         Counter Input
       </label>
-      <div className='flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1'>
+      <div className="relative mt-1 flex h-10 w-full flex-row rounded-lg bg-transparent">
         <button
           onClick={handleDecrementClick}
-          data-action='increment'
+          data-action="increment"
           className={`${service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'} ${
-            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
+            service.isDisabled
+              ? 'text-palettes-neutralVariant-95'
+              : 'text-light-onPrimaryFixed'
           } ${service.isDisabled ? 'text-palettes-neutralVariant-95' : 'hover:text-light-onPrimaryFixed'} 
           ${
-            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'hover:bg-light-primaryFixedDim'
-          }  h-full w-20 rounded-l ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'} outline-none `}>
-          <span className='m-auto text-2xl font-thin'>−</span>
+            service.isDisabled
+              ? 'bg-palettes-neutralVariant-95'
+              : 'hover:bg-light-primaryFixedDim'
+          }  h-full w-20 rounded-l ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'} outline-none `}
+        >
+          <span className="m-auto text-2xl font-thin">−</span>
         </button>
         <input
-          type='number'
-          className={`outline-none focus:outline-none text-center w-full ${
-            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'
+          type="number"
+          className={`w-full text-center outline-none focus:outline-none ${
+            service.isDisabled
+              ? 'bg-palettes-neutralVariant-95'
+              : 'bg-light-primaryFixed'
           } ${
-            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
-          } text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center`}
+            service.isDisabled
+              ? 'text-palettes-neutralVariant-95'
+              : 'text-light-onPrimaryFixed'
+          } text-md md:text-basecursor-default flex items-center hover:text-black focus:text-black`}
           name={service.name}
           value={count}
           disabled={service.isDisabled ? true : false}
-          readOnly></input>
+          readOnly
+        ></input>
         <button
           onClick={handleIncrementClick}
-          data-action='decrement'
+          data-action="decrement"
           className={`${service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'bg-light-primaryFixed'} ${
-            service.isDisabled ? 'text-palettes-neutralVariant-95' : 'text-light-onPrimaryFixed'
+            service.isDisabled
+              ? 'text-palettes-neutralVariant-95'
+              : 'text-light-onPrimaryFixed'
           } ${service.isDisabled ? 'text-palettes-neutralVariant-95' : 'hover:text-light-onPrimaryFixed'} ${
-            service.isDisabled ? 'bg-palettes-neutralVariant-95' : 'hover:bg-light-primaryFixedDim'
-          } h-full w-20 rounded-r ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'}`}>
-          <span className='m-auto text-2xl font-thin'>+</span>
+            service.isDisabled
+              ? 'bg-palettes-neutralVariant-95'
+              : 'hover:bg-light-primaryFixedDim'
+          } h-full w-20 rounded-r ${service.isDisabled ? 'cursor-default' : 'cursor-pointer'}`}
+        >
+          <span className="m-auto text-2xl font-thin">+</span>
         </button>
       </div>
     </div>
