@@ -128,7 +128,7 @@ function AccountMenu({
 
         <li>
           <a
-            href="#"
+            href="/dashboard/invoices"
             className="flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-1000 ease-in-out hover:bg-palettes-primary-98 hover:text-light-primary"
           >
             <svg
