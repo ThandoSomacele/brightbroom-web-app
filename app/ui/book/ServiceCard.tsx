@@ -3,25 +3,21 @@
 import Image from 'next/image';
 import React, { Dispatch, SetStateAction } from 'react';
 import CounterInput from './CounterInput';
-import ToggleSwitch from './ToggleSwitch';
-import { ServiceObject, BookingObject } from '@/app/lib/definitions';
+import SwitchInput from './SwitchInput';
+import { Service, Booking } from '@/app/lib/definitions';
 
 function ServiceCard({
   service,
-  price,
-  setPrice,
+  amount,
+  setAmount,
   totalHours,
   setTotalHours,
-  formData,
-  setFormData,
 }: {
-  service: ServiceObject;
-  price: number;
-  setPrice: Dispatch<SetStateAction<number>>;
+  service: Service;
+  amount: number;
+  setAmount: Dispatch<SetStateAction<number>>;
   totalHours: number;
   setTotalHours: Dispatch<SetStateAction<number>>;
-  formData: BookingObject;
-  setFormData: Dispatch<SetStateAction<BookingObject>>;
 }) {
   const ClockIcon = function () {
     return (
@@ -40,7 +36,7 @@ function ServiceCard({
     );
   };
 
-  let inputBtn:
+  let serviceInput:
     | string
     | number
     | boolean
@@ -50,31 +46,23 @@ function ServiceCard({
     | null
     | undefined;
   if (service.input_type === 'increment')
-    inputBtn = (
+    serviceInput = (
       <CounterInput
         service={service}
-        setPrice={setPrice}
-        price={price}
+        setAmount={setAmount}
+        amount={amount}
         totalHours={totalHours}
         setTotalHours={setTotalHours}
-        formData={formData}
-        setFormData={setFormData}
-        // bedrooms={bedrooms}
-        // setBedrooms={setBedrooms}
-        // bathrooms={bathrooms}
-        // setBathrooms={setBathrooms}
       />
     );
   else
-    inputBtn = (
-      <ToggleSwitch
+    serviceInput = (
+      <SwitchInput
         service={service}
-        setPrice={setPrice}
-        price={price}
+        setAmount={setAmount}
+        amount={amount}
         totalHours={totalHours}
         setTotalHours={setTotalHours}
-        formData={formData}
-        setFormData={setFormData}
       />
     );
 
@@ -97,9 +85,7 @@ function ServiceCard({
         </div>
 
         <div className="service-description w-full pt-2 md:w-4/6 md:pt-0">
-          <h3 className="text-lg font-medium sm:text-xl">
-            {service.name.toUpperCase()}
-          </h3>
+          <h3 className="text-lg font-medium sm:text-xl">{service.name}</h3>
 
           <p className="mt-1.5 text-sm text-gray-700">{service.description}</p>
 
@@ -116,7 +102,7 @@ function ServiceCard({
               <ClockIcon />
             </div>
           </div>
-          {inputBtn}
+          {serviceInput}
         </div>
       </div>
     </div>

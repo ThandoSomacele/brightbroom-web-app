@@ -4,32 +4,32 @@
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 
 export type FormEvent = React.FormEvent<HTMLFormElement>;
-export type ClickEvent = React.MouseEvent<HTMLButtonElement>;
+export type ClickEvent = React.MouseEvent<HTMLElement>;
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 export type SyntheticEvent = React.SyntheticEvent<EventTarget>;
 
-export type ServiceObject = {
+export type Service = {
   name: string;
   description: string;
   hours: number;
-  icon: string;
   cost: number;
   input_type: string;
-  isDisabled: Boolean;
-  defaultRooms: number;
-}
+  icon?: string;
+  isDisabled?: boolean;
+  defaultRooms?: number;
+  added?: string;
+};
 
-export type BookingObject = {
-  'totalHours': number;
-  'price': number;
-  'bedrooms'?: number;
-  'bathrooms'?: number;
-  'laundry & ironing'?: String;
-  'oven'?: String;
-  'fridge'?: String;
-  'cabinets'?: String;
-}
-
+export type Booking = {
+  totalHours: number;
+  amount: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  'laundry & ironing'?: string;
+  oven?: string;
+  fridge?: string;
+  cabinets?: string;
+};
 
 export type User = {
   id: string;
