@@ -1,29 +1,20 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
-import {
-  ServiceObject,
-  ClickEvent,
-  BookingObject,
-  ChangeEvent,
-} from '@/app/lib/definitions';
+import { Service, ClickEvent } from '@/app/lib/definitions';
 
 function CounterInput({
   service,
-  price,
-  setPrice,
+  amount,
+  setAmount,
   totalHours,
   setTotalHours,
-  formData,
-  setFormData,
 }: {
-  service: ServiceObject;
-  setPrice: Dispatch<SetStateAction<number>>;
-  price: number;
+  service: Service;
+  setAmount: Dispatch<SetStateAction<number>>;
+  amount: number;
   totalHours: number;
   setTotalHours: Dispatch<SetStateAction<number>>;
-  formData: BookingObject;
-  setFormData: Dispatch<SetStateAction<BookingObject>>;
 }) {
-  let [count, setCount] = useState(service.defaultRooms);
+  const [count, setCount] = useState(service.defaultRooms);
 
   // Coutner
   const handleIncrementClick = (event: ClickEvent) => {
@@ -32,21 +23,11 @@ function CounterInput({
       alert('Max hours is 10. \nAdjust to prioritise needed services.');
       return;
     }
-    // const { name, value } = event.target;
 
     if (totalHours < 10) {
       setCount(count + 1);
-      setPrice((price += service.cost));
+      setAmount((amount += service.cost));
       setTotalHours((totalHours += service.hours));
-
-      // formData change
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        price,
-        totalHours,
-        [service.name]: count,
-      }));
-      console.log(formData);
     }
   };
 
@@ -59,37 +40,18 @@ function CounterInput({
 
     if (count > 1) {
       setCount(count - 1);
-      setPrice((price -= service.cost));
+      setAmount((amount -= service.cost));
       setTotalHours((totalHours -= service.hours));
-
-      // formData change
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        price,
-        totalHours,
-        [service.name]: count,
-      }));
-      console.log(formData);
     }
   };
 
-  // const handleChange = (event: ChangeEvent) => {
-  //   event.preventDefault();
-  //   const { name } = event.target;
-
-  //   // formData change
-  //   setFormData(prevFormData => ({ ...prevFormData, price, totalHours, [name]: count }));
-  //   console.log(formData);
-  // };
-
-  // const minusCounter;
   return (
     <div className="custom-number-input w-32">
       <label
         htmlFor={service.name}
-        className="hidden w-full text-sm font-semibold text-light-onPrimaryFixed"
+        className="w-full text-sm font-semibold text-light-onPrimaryFixed"
       >
-        Counter Input
+        <span className="sr-only">{service.name}</span>
       </label>
       <div className="relative mt-1 flex h-10 w-full flex-row rounded-lg bg-transparent">
         <button
