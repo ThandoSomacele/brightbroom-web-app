@@ -14,7 +14,7 @@ function CounterInput({
   totalHours: number;
   setTotalHours: Dispatch<SetStateAction<number>>;
 }) {
-  const [count, setCount] = useState(service.defaultRooms);
+  const [count, setCount] = useState(service.defaultRooms ?? 0);
 
   // Coutner
   const handleIncrementClick = (event: ClickEvent) => {
