@@ -18,7 +18,7 @@ const navLinks = [
     href: '/#how-it-works',
   },
   {
-    text: 'Become A Cleaner',
+    text: 'Become a Cleaner',
     href: '/become-a-cleaner',
   },
 ];

@@ -8,11 +8,24 @@ import Footer from '@/app/ui/main-layout/Footer';
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'BrightBroom | Cleaner Bookings Made Simple',
+  title: {
+    template: '%s | BrightBroom',
+    default: ' BrightBroom | Cleaner Bookings Made Simple',
+  },
+  description:
+    'Experience a simple way to book a cleaner on-demand with BrightBroom.com',
+  metadataBase: new URL('http://brightbroom.vercel.app/'),
   generator: 'BrightBroom',
   applicationName: 'BrightBroom',
   referrer: 'origin-when-cross-origin',
-  keywords: ['BrightBroom', 'Cleaners', 'Domestic Worker', 'Cleaning'],
+  keywords: [
+    'BrightBroom',
+    'Cleaners',
+    'Domestic Worker',
+    'Cleaning',
+    'Home',
+    'House',
+  ],
   // authors: [{ name: 'Thando Somacele' }],
   creator: 'Thando Somacele',
   // publisher: 'Thando Somacele',
@@ -21,15 +34,17 @@ export const metadata: Metadata = {
   //   address: false,
   //   telephone: false,
   // },
-  metadataBase: new URL('http://brightbroom.vercel.app/'),
   alternates: {
     canonical: '/',
     languages: {
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
+      'en-GB': '/en-GB',
+      'en-ZA': '/en-ZA',
     },
   },
   openGraph: {
+    title: 'BrightBroom Cleaner Bookings',
+    description:
+      'Experience a simple way to book a cleaner on-demand with BrightBroom.com',
     images: '/opengraph-image.jpg',
   },
 };

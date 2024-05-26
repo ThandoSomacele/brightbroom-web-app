@@ -58,42 +58,53 @@ const Page = () => {
   });
 
   return (
-    <form action={createBooking}>
-      <div className="container relative flex flex-col gap-9 py-10 pt-20">
-        <div className="fixed right-0 top-[79px] z-10 mb-8 w-full bg-palettes-neutral-90 py-2">
-          <div className="flex justify-center md:ml-9">
-            <p className=" text-xl font-semibold">
-              {totalHours} Hours • R {amount}
-            </p>
+    <>
+      <title>Book | BrightBroom </title>
+      <form action={createBooking}>
+        <div className="container relative flex flex-col gap-9 py-10 pt-20">
+          <div className="fixed right-0 top-[79px] z-10 mb-8 w-full bg-palettes-neutral-90 py-2">
+            <div className="flex justify-center md:ml-9">
+              <p className=" text-xl font-semibold">
+                {totalHours} Hours • R {amount}
+              </p>
+            </div>
           </div>
-        </div>
-        <AddressInput />
-        <DateInput />
-        <div className="hidden">
-          <label
-            htmlFor="totalHours"
-            className="text-sm font-medium text-gray-700"
+          <AddressInput />
+          <DateInput />
+          <div className="hidden">
+            <label
+              htmlFor="totalHours"
+              className="text-sm font-medium text-gray-700"
+            >
+              <span className="sr-only">Total Hours</span>
+            </label>
+            <input
+              type="number"
+              name="totalHours"
+              defaultValue={totalHours}
+              hidden
+            />
+          </div>
+          <div className="hidden">
+            <label
+              htmlFor="amount"
+              className="text-sm font-medium text-gray-700"
+            >
+              <span className="sr-only">Total Hours</span>
+            </label>
+            <input type="number" name="amount" defaultValue={amount} hidden />
+          </div>
+          <div className="flex flex-col gap-10">{serviceCards}</div>
+          <button
+            type="submit"
+            className="btn btn-primary w-full py-4 text-lg"
+            // onClick={handleSubmit}
           >
-            <span className="sr-only">Total Hours</span>
-          </label>
-          <input type="number" name="totalHours" value={totalHours} hidden />
+            Book Your Cleaner Now
+          </button>
         </div>
-        <div className="hidden">
-          <label htmlFor="amount" className="text-sm font-medium text-gray-700">
-            <span className="sr-only">Total Hours</span>
-          </label>
-          <input type="number" name="amount" value={amount} hidden />
-        </div>
-        <div className="flex flex-col gap-10">{serviceCards}</div>
-        <button
-          type="submit"
-          className="btn btn-primary w-full py-4 text-lg"
-          // onClick={handleSubmit}
-        >
-          Book Your Cleaner Now
-        </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 

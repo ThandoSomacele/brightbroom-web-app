@@ -10,11 +10,11 @@ import {
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
+    name: 'Bookings',
+    href: '/dashboard/bookings',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Users', href: '/dashboard/users', icon: UserGroupIcon },
   { name: 'Cleaner Bookings', href: '/dashboard/bookings', icon: GiftIcon },
 ];
 

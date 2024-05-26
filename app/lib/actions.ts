@@ -4,40 +4,67 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
 
-// -------- Create Invoice ---------- //
-const InvoiceFormSchema = z.object({
-  id: z.string(),
-  customerId: z.string({
-    invalid_type_error: 'Please select a customer',
-  }),
-  amount: z.coerce
-    .number()
-    .gt(0, { message: 'Please enter an amount greater than R0.' }),
-  status: z.enum(['pending', 'paid'], {
-    invalid_type_error: 'Please select an invoice status.',
-  }),
+// // -------- Create Booking ---------- //
+// const BookingFormSchema = z.object({
+//   id: z.string(),
+//   userId: z.string({
+//     invalid_type_error: 'Please select a user',
+//   }),
+//   amount: z.coerce
+//     .number()
+//     .gt(0, { message: 'Please enter an amount greater than R0.' }),
+//   status: z.enum(['pending', 'paid'], {
+//     invalid_type_error: 'Please select an booking status.',
+//   }),
+//   date: z.string(),
+// });
+
+const BookingFormSchema = z.object({
+  // User Info
+  user_id: z.string(),
+  user_first_name: z.string(),
+  user_last_name: z.string(),
+  email: z.string(),
+  contact_number: z.string(),
+  address: z.string(),
+  // Booking Info
+  bed_rooms: z.coerce.number(),
+  bath_booms: z.coerce.number(),
+  laundry_and_ironing: z.enum(['Yes', 'No']),
+  oven: z.enum(['Yes', 'No']),
+  fridge: z.enum(['Yes', 'No']),
+  cabinets: z.enum(['Yes', 'No']),
+  total_hours: z.coerce.number(),
+  amount: z.coerce.number(),
   date: z.string(),
+  service_date: z.string(),
+  service_time: z.string(),
+  status: z.enum(['pending', 'booked', 'started', 'completed']),
+  // Cleaner Info
+  cleaner_id: z.string(),
 });
 
-const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
+const CreateBooking = BookingFormSchema.omit({ id: true, date: true });
 
 export type State = {
   errors?: {
-    customerId?: string[];
+    userId?: string[];
     amount?: string[];
     status?: string[];
   };
   message?: string | null;
 };
 
-export async function createInvoice(
+export async function createBooking(
   prevState: State,
   formData: FormData,
 ): Promise<State> {
   // Validate form using Zod
-  const validatedFields = CreateInvoice.safeParse({
-    customerId: formData.get('customerId'),
+  const validatedFields = CreateBooking.safeParse({
+    userId: formData.get('userId'),
     amount: formData.get('amount'),
     status: formData.get('status'),
   });
@@ -46,39 +73,39 @@ export async function createInvoice(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create Invoice.',
+      message: 'Missing Fields. Failed to Create Booking.',
     };
   }
 
   // Prepare data for insertion into the database
-  const { customerId, amount, status } = validatedFields.data;
+  const { user_id, amount, status } = validatedFields.data;
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
 
   // Insert data into the database
   try {
     await sql`
-      INSERT INTO invoices (customer_id, amount, status, date)
-      VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+      INSERT INTO bookings (user_id, amount, status, date)
+      VALUES (${user_id}, ${amountInCents}, ${status}, ${date})
     `;
   } catch (error) {
     // If a database error occurs, return a more specific error.
     return {
-      message: 'Database Error: Failed to Create Invoice.',
+      message: 'Database Error: Failed to Create Booking.',
     };
   }
 
-  // Revalidate the cache for the invoices page and redirect the user.
-  revalidatePath('/dashboard/invoices');
-  redirect('/dashboard/invoices');
+  // Revalidate the cache for the bookings page and redirect the user.
+  revalidatePath('/dashboard/bookings');
+  redirect('/dashboard/bookings');
 }
 
-// Use Zod to update the expected types
-const UpdateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
+// // Use Zod to update the expected types
+const UpdateBooking = BookingFormSchema.omit({ id: true, date: true });
 
-export async function updateInvoice(id: string, formData: FormData) {
-  const { customerId, amount, status } = UpdateInvoice.parse({
-    customerId: formData.get('customerId'),
+export async function updateBooking(id: string, formData: FormData) {
+  const { user_id, amount, status } = UpdateBooking.parse({
+    userId: formData.get('userId'),
     amount: formData.get('amount'),
     status: formData.get('status'),
   });
@@ -87,97 +114,108 @@ export async function updateInvoice(id: string, formData: FormData) {
 
   try {
     await sql`
-    UPDATE invoices
-    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
+    UPDATE bookings
+    SET user_id = ${user_id}, amount = ${amountInCents}, status = ${status}
     WHERE id = ${id}
   `;
   } catch (error) {
-    return { message: 'Database Error: Failed to Update Invoice' };
+    return { message: 'Database Error: Failed to Update Booking' };
   }
 
-  revalidatePath('/dashboard/invoices');
-  redirect('/dashboard/invoices');
+  revalidatePath('/dashboard/bookings');
+  redirect('/dashboard/bookings');
 }
 
-export async function deleteInvoice(id: string) {
+export async function deleteBooking(id: string) {
   try {
-    await sql`DELETE FROM invoices WHERE id = ${id}`;
-    revalidatePath('/dashboard/invoices');
-    return { message: 'Deleted Invoice.' };
+    await sql`DELETE FROM bookings WHERE id = ${id}`;
+    revalidatePath('/dashboard/bookings');
+    return { message: 'Deleted Booking.' };
   } catch (error) {
-    return { message: 'Database Error: Failed to Delete Invoice.' };
+    return { message: 'Database Error: Failed to Delete Booking.' };
   }
 }
 
 // -------- Create Booking ---------- //
-const BookingFormSchema = z.object({
-  // Customer Info
-  customerId: z.string(),
-  customerFirstName: z.string(),
-  customerLastName: z.string(),
-  email: z.string(),
-  contactNumber: z.string(),
-  address: z.string(),
-  // Booking Info
-  bedRooms: z.coerce.number(),
-  bathRooms: z.coerce.number(),
-  laundryAndIroning: z.enum(['Yes', 'No']),
-  oven: z.enum(['Yes', 'No']),
-  fridge: z.enum(['Yes', 'No']),
-  cabinets: z.enum(['Yes', 'No']),
-  totalHours: z.coerce.number(),
-  amount: z.coerce.number(),
-  date: z.string(),
-  serviceDate: z.string(),
-  serviceTime: z.string(),
-  // Cleaner Info
-  cleanerId: z.string(),
-});
 
-const CreateBooking = BookingFormSchema.omit({ id: true, date: true });
+// export async function createBooking(formData: FormData) {
+//   const dateValue = formData.get('date');
 
-export async function createBooking(formData: FormData) {
-  const dateValue = formData.get('date');
+//   const rawFormData = CreateBooking.parse({
+//     // User Info
+//     user_id: '412Ts',
+//     user_first_name: 'Thando',
+//     user_last_name: 'Somacele',
+//     email: 'thando.somacele@gmail.com',
+//     contact_number: '0722251491',
+//     address: '123 Baker Street',
+//     // Booking Info
+//     bed_rooms: Number(formData.get(servicesData['Bedrooms'].name)),
+//     bath_rooms: Number(formData.get(servicesData['Bathrooms'].name)),
+//     laundry_and_ironing:
+//       formData.get(servicesData['Laundry & Ironing'].name) || 'No',
+//     oven: formData.get(servicesData['Oven'].name) || 'No',
+//     fridge: formData.get(servicesData['Fridge'].name) || 'No',
+//     cabinets: formData.get(servicesData['Cabinets'].name) || 'No',
+//     total_hours: Number(formData.get('totalHours')),
+//     amount: Number(formData.get('amount')),
+//     service_date: new Date(
+//       typeof dateValue === 'string' ? dateValue : Date.now(),
+//     ).toISOString(),
+//     service_time: new Date(
+//       typeof dateValue === 'string' ? dateValue : Date.now(),
+//     ).toTimeString(),
+//     status: 'pending',
+//     // Cleaner Info
+//     cleaner_id: '111',
+//   });
 
-  const rawFormData = CreateBooking.parse({
-    // Customer Info
-    customerId: '412Ts',
-    customerFirstName: 'Thando',
-    customerLastName: 'Somacele',
-    email: 'thando.somacele@gmail.com',
-    contactNumber: '0722251491',
-    address: '123 Baker Street',
-    // Booking Info
-    bedRooms: Number(formData.get(servicesData['Bedrooms'].name)),
-    bathRooms: Number(formData.get(servicesData['Bathrooms'].name)),
-    laundryAndIroning:
-      formData.get(servicesData['Laundry & Ironing'].name) || 'No',
-    oven: formData.get(servicesData['Oven'].name) || 'No',
-    fridge: formData.get(servicesData['Fridge'].name) || 'No',
-    cabinets: formData.get(servicesData['Cabinets'].name) || 'No',
-    totalHours: Number(formData.get('totalHours')),
-    amount: Number(formData.get('amount')),
-    serviceDate: new Date(
-      typeof dateValue === 'string' ? dateValue : Date.now(),
-    ).toISOString(),
-    serviceTime: new Date(
-      typeof dateValue === 'string' ? dateValue : Date.now(),
-    ).toTimeString(),
-    // Cleaner Info
-    cleanerId: '111',
-  });
+//   const amountInCents = rawFormData.amount * 100;
+//   const date = new Date().toISOString().split('T')[0];
 
-  const amountInCents = rawFormData.amount * 100;
-  const date = new Date().toISOString().split('T')[0];
+//   try {
+//     await sql`
+//   INSERT INTO bookings (user_id, amount, status, date)
+//   VALUES (${rawFormData.user_id}, ${amountInCents}, ${date})
+// `;
+//   } catch (error) {
+//     return { message: 'Database Error: Failed to Create Booking' };
+//   }
 
+//   revalidatePath('/dashboard/bookings');
+// }
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
   try {
-    await sql`
-  INSERT INTO bookings (customer_id, amount, status, date)
-  VALUES (${rawFormData.customerId}, ${amountInCents}, ${date})
-`;
+    await signIn('credentials', formData);
   } catch (error) {
-    return { message: 'Database Error: Failed to Create Booking' };
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
   }
+}
 
-  revalidatePath('/dashboard/bookings');
+export async function handleGoogleSignIn() {
+  await signIn('google');
+}
+
+export async function handlePostmarkSignIn(
+  formData:
+    | FormData
+    | ({
+        redirectTo?: string | undefined;
+        redirect?: true | undefined;
+      } & Record<string, any>)
+    | undefined,
+) {
+  await signIn('postmark', formData);
 }

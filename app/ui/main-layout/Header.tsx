@@ -5,20 +5,14 @@ import Link from 'next/link';
 import CtaLinks from '../misc/CtaLinks';
 import clsx from 'clsx';
 import { usePathname, useParams, useRouter } from 'next/navigation';
-import { isLoggedIn } from '@/app/lib/isLoggedIn';
-import AccountMenu from '../header/AccountMenu';
+import UserAvatar from '@/ui/header/UserAvatar';
 import { Link as ScrollLink, animateScroll } from 'react-scroll';
 
 // Head Component
 const Header = () => {
-  const [displayAccMenu, setDisplayAccMenu] = useState('hidden');
   const [displayMobileNavMenu, setDisplyMobileNavMenu] = useState('hidden');
   const pathname = usePathname();
 
-  const toggleAccMenu = () => {
-    if (displayAccMenu === 'block') setDisplayAccMenu('hidden');
-    else setDisplayAccMenu('block');
-  };
   const toggleMobileNavMenu = () => {
     if (displayMobileNavMenu === 'flex') setDisplyMobileNavMenu('hidden');
     else setDisplyMobileNavMenu('flex');
@@ -50,18 +44,18 @@ const Header = () => {
                   duration={500}
                 >
                   <Image
-                    className={`logo lg:w-[${181 * 1.5}px] w-40`}
+                    className={`logo w-40 lg:w-[344px]`}
                     src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
                     alt="logo"
-                    width={181}
-                    height={41}
+                    width={344}
+                    height={77}
                     priority
                   />
                 </ScrollLink>
               ) : (
                 <Link href={'/'}>
                   <Image
-                    className={`logo lg:w-[${181 * 1.5}px] w-40`}
+                    className={`logo w-40 lg:w-[344px]`}
                     src={`/assets/${pathname !== '/' ? 'logo-white' : 'logo'}.webp`}
                     alt="logo"
                     width={181}
@@ -147,7 +141,7 @@ const Header = () => {
                     )}
                     href={'/become-a-cleaner'}
                   >
-                    Become A Cleaner
+                    Become a Cleaner
                   </Link>
                 </li>
                 <li
@@ -168,17 +162,7 @@ const Header = () => {
             </nav>
             <div className="navbar-right flex w-1/4 items-center justify-end gap-3 md:w-2/3 lg:w-1/3">
               <CtaLinks styleClasses="hidden md:flex" />
-
-              {isLoggedIn && (
-                <Image
-                  src={'/cleaners/cleaner.jpg'}
-                  alt="user profile"
-                  width={40}
-                  height={40}
-                  className="cursor-pointer rounded-full object-cover md:h-12 md:w-12"
-                  onClick={toggleAccMenu}
-                />
-              )}
+              {/* <UserAvatar /> */}
               <>
                 <button
                   className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -210,13 +194,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {isLoggedIn && (
-        <AccountMenu
-          displayAccMenu={displayAccMenu}
-          setDisplayAccMenu={setDisplayAccMenu}
-        />
-      )}
     </>
   );
 };
