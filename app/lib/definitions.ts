@@ -3,6 +3,8 @@
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
 
+import { GeneratedAlways } from 'kysely';
+
 export type FormEvent = React.FormEvent<HTMLFormElement>;
 export type ClickEvent = React.MouseEvent<HTMLElement>;
 export type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
@@ -36,23 +38,10 @@ export type User = {
   name: string;
   email: string;
   password: string;
-};
-
-export type Customer = {
-  id: string;
-  name: string;
-  email: string;
+  emailVerified: string;
   image_url: string;
-};
-
-export type Invoice = {
-  id: string;
-  customer_id: string;
-  amount: number;
-  date: string;
-  // In TypeScript, this is called a string union type.
-  // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
-  status: 'pending' | 'paid';
+  contact_number: string;
+  address: string;
 };
 
 export type Revenue = {
@@ -60,7 +49,7 @@ export type Revenue = {
   revenue: number;
 };
 
-export type LatestInvoice = {
+export type LatestBooking = {
   id: string;
   name: string;
   image_url: string;
@@ -69,49 +58,49 @@ export type LatestInvoice = {
 };
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
-export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
+export type LatestBookingRaw = Omit<LatestBooking, 'amount'> & {
   amount: number;
 };
 
-export type InvoicesTable = {
+export type BookingsTable = {
   id: string;
-  customer_id: string;
-  name: string;
+  user_id: string;
+  user_name: string;
   email: string;
   image_url: string;
   date: string;
   amount: number;
-  status: 'pending' | 'paid';
+  status: 'pending' | 'booked' | 'started' | 'completed';
 };
 
-export type CustomersTableType = {
+export type UsersTableType = {
   id: string;
-  name: string;
+  user_name: string;
   email: string;
   image_url: string;
-  total_invoices: number;
+  total_bookings: number;
   total_pending: number;
-  total_paid: number;
+  total_completed: number;
 };
 
-export type FormattedCustomersTable = {
+export type FormattedUsersTable = {
   id: string;
-  name: string;
+  user_name: string;
   email: string;
   image_url: string;
-  total_invoices: number;
+  total_bookings: number;
   total_pending: string;
-  total_paid: string;
+  total_completed: string;
 };
 
-export type CustomerField = {
+export type UserField = {
   id: string;
-  name: string;
+  user_name: string;
 };
 
-export type InvoiceForm = {
+export type BookingForm = {
   id: string;
-  customer_id: string;
+  user_id: string;
   amount: number;
   status: 'pending' | 'paid';
 };

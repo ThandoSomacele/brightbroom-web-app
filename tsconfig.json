@@ -33,8 +33,8 @@
     "scripts/seed.js",
     ".next/types/app/(user-pages)/dashboard/page.tsx",
     ".next/types/app/(user-pages)/dashboard/layout.tsx",
-    ".next/types/app/(user-pages)/dashboard/invoices/page.tsx",
-    ".next/types/app/(user-pages)/dashboard/customers/page.tsx",
+    ".next/types/app/(user-pages)/dashboard/bookings/page.tsx",
+    ".next/types/app/(user-pages)/dashboard/users/page.tsx",
     ".next/types/app/(user-pages)/dashboard/(overview)/page.tsx",
     ".next/types/app/page.tsx",
     ".next/types/app/layout.tsx"

@@ -1,26 +1,30 @@
 'use client';
-import { isLoggedIn } from '@/app/lib/isLoggedIn';
-import clsx from 'clsx';
+import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import clsx from 'clsx';
 
-function CtaLinks({ styleClasses }: { styleClasses: string }) {
+export default function CtaLinks({ styleClasses }: { styleClasses: string }) {
   const pathname = usePathname();
   const hideCTALinkPaths = ['/book', '/cart', '/checkout'];
   // console.log(pathname);
 
   return (
     <div className={`cta-buttons flex gap-3 ${styleClasses}`}>
-      <Link className={clsx('btn btn-primary__outlined text__body-large', { hidden: isLoggedIn })} href={'/sign-up'}>
-        Sign up
+      <Link
+        className={clsx('btn btn-primary__outlined text__body-large')}
+        href={'/login'}
+      >
+        Sign In
       </Link>
       <Link
-        className={clsx('btn btn-secondary text__body-large', { hidden: hideCTALinkPaths.includes(pathname) })}
-        href={'/book'}>
+        className={clsx('btn btn-secondary text__body-large', {
+          hidden: hideCTALinkPaths.includes(pathname),
+        })}
+        href={'/book'}
+      >
         Book a Cleaner
       </Link>
     </div>
   );
 }
-export default CtaLinks;

@@ -7,6 +7,10 @@ function AccountMenu({
   displayAccMenu: string;
   setDisplayAccMenu: Dispatch<SetStateAction<string>>;
 }) {
+  const toggleAccMenu = () => {
+    if (displayAccMenu === 'block') setDisplayAccMenu('hidden');
+    else setDisplayAccMenu('block');
+  };
   const hideMenu = () => setDisplayAccMenu('hidden');
   return (
     <>
@@ -128,7 +132,7 @@ function AccountMenu({
 
         <li>
           <a
-            href="/dashboard/invoices"
+            href="/dashboard/bookings"
             className="flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-1000 ease-in-out hover:bg-palettes-primary-98 hover:text-light-primary"
           >
             <svg
@@ -146,7 +150,7 @@ function AccountMenu({
               />
             </svg>
 
-            <span className="text-sm font-medium"> Invoices </span>
+            <span className="text-sm font-medium"> Bookings </span>
           </a>
         </li>
 
