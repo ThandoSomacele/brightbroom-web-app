@@ -1,11 +1,21 @@
-import NextAuth from 'next-auth';
-import { authConfig } from './auth.config';
+export { auth as middleware } from '@/auth';
 
-export default NextAuth(authConfig).auth;
+// import { NextRequest } from 'next/server';
+// import authConfig from './auth.config';
+// import NextAuth from 'next-auth';
 
-export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
-};
+// // Use only one of the two middleware options below
+// // 1. Use middleware directly
+// // export const { auth: middleware } = NextAuth(authConfig)
 
-// export { auth as middleware } from '@/auth'; //FIXME causes crypto in pg errors
+// // 2. Wrapped middleware option
+// const { auth } = NextAuth(authConfig);
+// export default auth(async function middleware(req: NextRequest) {
+//   // Your custom middleware logic goes here
+// });
+// // 3.matcher allows you to filter Middleware to run on specific paths.
+
+// export const config = {
+//   // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+//   matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+// };

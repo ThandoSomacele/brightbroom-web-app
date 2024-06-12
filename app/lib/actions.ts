@@ -1,5 +1,4 @@
 'use server';
-import servicesData from '@/app/lib/services.json';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
@@ -209,13 +208,20 @@ export async function handleGoogleSignIn() {
 }
 
 export async function handlePostmarkSignIn(
-  formData:
-    | FormData
-    | ({
-        redirectTo?: string | undefined;
-        redirect?: true | undefined;
-      } & Record<string, any>)
-    | undefined,
+  prevState: string | undefined,
+  formData: FormData,
 ) {
-  await signIn('postmark', formData);
+  try {
+    await signIn('postmark', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid email.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
 }
